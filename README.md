@@ -9,7 +9,7 @@ Selected app is `Domino's Pizza App Sri Lanka`.
 * IT19236810 - Perera.B.D.K.
 
 ## Memeber Functions
-* Wickramarathna W.A.A.I. - Offers(Retrieve), Feedback(insert, update, delete), MyFavourties(insert, delete)
+* Wickramarathna W.A.A.I. - Offers(Retrieve), Address(insert, update, delete)
 * Wanniarachchi W.A.P.W. - Delivery(insert, update, delete), Payment(insert)
 * Maheshi Purnima K.A.D. - Login, User Registartion, User Profile(insert, update, delete)
 * Perera.B.D.K. - Menu(Retrieve), Cart(insert, update, delete)
