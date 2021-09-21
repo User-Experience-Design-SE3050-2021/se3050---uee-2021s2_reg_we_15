@@ -10,14 +10,17 @@ import {
     TouchableOpacity,
 } from "react-native";
 
-export default class AddressScreen extends React.Component {
+export default class DeliveryScreen extends React.Component {
     static navigationOptions = {
-        title: 'Address Details'
+        title: 'Delivery'
     }
 
     render() {
         return (
             <View style={styles.container}>
+                <TouchableOpacity style={{ backgroundColor: '#006491', height: 40, padding: 10}}>
+                    <Text style={styles.forgot_button}>Edit Address</Text>
+                </TouchableOpacity>
                 <Text style={styles.loginText}>Your Location</Text>
                 <View style={styles.inputView}>
                     <TextInput
@@ -97,7 +100,7 @@ const styles = StyleSheet.create({
     forgot_button: {
         height: 30,
         marginBottom: 30,
-        color: "#006491"
+        color: "#fff"
     },
     loginBtn: {
         width: "80%",

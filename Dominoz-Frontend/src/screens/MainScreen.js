@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  Text,
-  View,
-  StyleSheet,
-  ImageBackground,
-  Image,
-  TouchableOpacity,
-} from 'react-native';
+import {Text, View, StyleSheet, TouchableOpacity} from 'react-native';
 
 export default class SplashScreen extends React.Component {
   static navigationOptions = {
@@ -16,30 +9,42 @@ export default class SplashScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <TouchableOpacity
-          onPress={() => this.props.navigation.navigate('LoginScreen')}
-          style={styles.btn}
-          activeOpacity={0.5}>
-          <Text style={styles.btnTxt}>Login</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => this.props.navigation.navigate('PaymentScreen')}
-          style={styles.btn}
-          activeOpacity={0.5}>
-          <Text style={styles.btnTxt}>Payment</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => this.props.navigation.navigate('AddressScreen')}
-          style={styles.btn}
-          activeOpacity={0.5}>
-          <Text style={styles.btnTxt}>Address</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => this.props.navigation.navigate('MenuScreen')}
-          style={styles.btn}
-          activeOpacity={0.5}>
-          <Text style={styles.btnTxt}>Menu</Text>
-        </TouchableOpacity>
+        <View style={styles.row}>
+          <View style={styles.column}>
+            <TouchableOpacity
+              onPress={() => this.props.navigation.navigate('LoginScreen')}
+              style={styles.btn}
+              activeOpacity={0.5}>
+              <Text style={styles.btnTxt}>Login</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.column}>
+            <TouchableOpacity
+              onPress={() => this.props.navigation.navigate('PaymentScreen')}
+              style={styles.btn}
+              activeOpacity={0.5}>
+              <Text style={styles.btnTxt}>Payment</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+        <View style={styles.row}>
+          <View style={styles.column}>
+            <TouchableOpacity
+              onPress={() => this.props.navigation.navigate('AddressScreen')}
+              style={styles.btn}
+              activeOpacity={0.5}>
+              <Text style={styles.btnTxt}>Address</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.column}>
+            <TouchableOpacity
+              onPress={() => this.props.navigation.navigate('MenuScreen')}
+              style={styles.btn}
+              activeOpacity={0.5}>
+              <Text style={styles.btnTxt}>Menu</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
       </View>
     );
   }
@@ -48,49 +53,28 @@ export default class SplashScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    margin: 10,
+    marginTop: 200,
   },
-  backgroundImage: {
+  row: {
+    flex: 0.2,
+    flexDirection: 'row',
+  },
+  column: {
     flex: 1,
-    justifyContent: 'center',
-  },
-  backBtn: {
-    width: '30%',
-    height: '20%',
-  },
-  backImage: {
-    width: '20%',
-    height: '20%',
-    padding: '10%',
-    margin: '10%',
-    marginTop: '90%',
-    marginLeft: '10%',
-  },
-  image: {
-    width: '35%',
-    height: '23%',
-    marginLeft: '30%',
-  },
-  title: {
-    color: 'white',
-    fontSize: 25,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    marginBottom: '75%',
+    flexDirection: 'column',
+    // width: '50%'
   },
   btn: {
-    marginTop: '0%',
-    marginBottom: '35%',
-    marginLeft: '10%',
-    marginRight: '10%',
+    marginRight: 5,
   },
   btnTxt: {
     color: 'white',
-    fontSize: 20,
-    lineHeight: 50,
+    fontSize: 18,
+    lineHeight: 60,
     fontWeight: 'bold',
     textAlign: 'center',
-    // backgroundColor: "#000000c0",
-    backgroundColor: '#4682b4',
-    borderRadius: 50,
+    backgroundColor: '#006491',
+    borderRadius: 20,
   },
 });
