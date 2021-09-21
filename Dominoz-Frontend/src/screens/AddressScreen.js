@@ -18,7 +18,7 @@ export default class AddressScreen extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text style={styles.loginText}>your Location</Text>
+                <Text style={styles.loginText}>Your Location</Text>
                 <View style={styles.inputView}>
                     <TextInput
                         style={styles.TextInput}
@@ -65,42 +65,40 @@ export default class AddressScreen extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#fff",
+        // backgroundColor: "#F1F5FF",
+        backgroundColor: "#ffff",
         padding: 10,
-        paddingLeft: 30,
         paddingTop: 30
         // alignItems: "center",
         // justifyContent: "center",
     },
-
     image: {
         marginBottom: 40,
         width: 200,
         height: 200
     },
-
     inputView: {
-        backgroundColor: "#E8E8E8",
-        width: "80%",
+        // backgroundColor: "#E8E8E8",
+        // width: "80%",
         height: 45,
         marginBottom: 20,
         alignItems: "center",
     },
-
     TextInput: {
         height: 50,
         flex: 1,
         padding: 10,
-        marginLeft: 20,
-        color: "#000000"
+        // marginLeft: 20,
+        backgroundColor: '#ffff',
+        borderBottomWidth: 1,
+        borderColor: '#9B9B9B',
+        width: 300
     },
-
     forgot_button: {
         height: 30,
         marginBottom: 30,
         color: "#006491"
     },
-
     loginBtn: {
         width: "80%",
         borderRadius: 25,
@@ -114,6 +112,7 @@ const styles = StyleSheet.create({
         color: "#fff"
     },
     loginText: {
-        textAlign: 'left'
+        textAlign: 'left',
+        marginLeft: 8
     }
 });

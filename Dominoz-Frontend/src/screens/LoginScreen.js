@@ -47,7 +47,10 @@ export default class SplashScreen extends React.Component {
             <TouchableOpacity style={styles.loginBtn}>
               <Text style={styles.loginText}>LOGIN</Text>
             </TouchableOpacity>
-            <Text style={styles.forgot_button}>We will never post anything without your permission</Text>
+            <TouchableOpacity>
+              {/* <Text style={styles.forgot_button}>We will never post anything without your permission</Text> */}
+            </TouchableOpacity>
+            {/* <Text style={styles.forgot_button}>We will never post anything without your permission</Text> */}
           </View>
         )
     }
