@@ -10,10 +10,14 @@ import {
   TouchableOpacity,
 } from "react-native";
 
+
 export default class SignupScreen extends React.Component {
     static navigationOptions = {
         title: 'Sign Up'
     }
+
+      
+    
 
     render() {
         return (
@@ -64,7 +68,7 @@ export default class SignupScreen extends React.Component {
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.mobileBtn}>
-            <Image style={styles.fbimage} source={{ uri: 'https://cdn3.iconfinder.com/data/icons/capsocial-round/500/facebook-512.png' }}/>
+            {/* <Image style={styles.fbimage} source={{ uri: 'https://cdn3.iconfinder.com/data/icons/capsocial-round/500/facebook-512.png' }}/> */}
             <Text style={styles.Fbtxt}> Continue with Facebook</Text>
             </TouchableOpacity>
 
@@ -96,7 +100,8 @@ const styles = StyleSheet.create({
 
   fbimage:{
     width: 20,
-    height: 20
+    height: 20,
+    flexDirection: 'row',
   },
   TextInput: {
     height: 20,
@@ -166,7 +171,9 @@ const styles = StyleSheet.create({
     
   },
   Fbtxt:{
-    color:"#161CA0"
+    color:"#161CA0",
+    flexDirection: 'row',
+
   },
 
   loginBtn: {

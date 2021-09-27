@@ -10,6 +10,7 @@ import MenuScreen from './src/screens/MenuScreen';
 import CartScreen from './src/screens/CartScreen';
 import DeliveryScreen from './src/screens/DeliveryScreen';
 import SignupScreen from './src/screens/SignupScreen';
+import Profilescreen from './src/screens/ProfileScreen';
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -24,7 +25,7 @@ class HomeScreen extends React.Component {
   };
   render() {
     return (
-      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center' , backgroundColor : '#F1F5FF'}}>
         <Text>Home Screen</Text>
       </View>
     );
@@ -41,6 +42,7 @@ const AppNavigator = createStackNavigator(
     CartScreen: {screen: CartScreen},
     DeliveryScreen: {screen: DeliveryScreen},
     SignupScreen :{screen : SignupScreen},
+    ProfileScreen : {screen : Profilescreen}
   },
   {
     defaultNavigationOptions: {

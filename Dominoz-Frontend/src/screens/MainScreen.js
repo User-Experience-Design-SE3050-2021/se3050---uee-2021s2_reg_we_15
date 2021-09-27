@@ -55,6 +55,14 @@ export default class SplashScreen extends React.Component {
               <Text style={styles.btnTxt}>Sign Up</Text>
             </TouchableOpacity>
           </View>
+          <View style={styles.column}>
+            <TouchableOpacity
+              onPress={() => this.props.navigation.navigate('ProfileScreen')}
+              style={styles.btn}
+              activeOpacity={0.5}>
+              <Text style={styles.btnTxt}>Profile</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
     );
@@ -66,6 +74,7 @@ const styles = StyleSheet.create({
     flex: 1,
     margin: 10,
     marginTop: 200,
+    backgroundColor : '#F1F5FF'
   },
   row: {
     flex: 0.2,
