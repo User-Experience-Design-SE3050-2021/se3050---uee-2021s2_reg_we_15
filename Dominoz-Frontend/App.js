@@ -9,6 +9,8 @@ import AddressScreen from './src/screens/AddressScreen';
 import MenuScreen from './src/screens/MenuScreen';
 import CartScreen from './src/screens/CartScreen';
 import DeliveryScreen from './src/screens/DeliveryScreen';
+import CheckOutScreen from './src/screens/CheckOutScreen';
+import ConfirmationScreen from './src/screens/ConfirmationScreen';
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -39,6 +41,8 @@ const AppNavigator = createStackNavigator(
     MenuScreen: {screen: MenuScreen},
     CartScreen: {screen: CartScreen},
     DeliveryScreen: {screen: DeliveryScreen},
+    CheckOutScreen:{screen: CheckOutScreen},
+    ConfirmationScreen:{screen: ConfirmationScreen},
   },
   {
     defaultNavigationOptions: {
