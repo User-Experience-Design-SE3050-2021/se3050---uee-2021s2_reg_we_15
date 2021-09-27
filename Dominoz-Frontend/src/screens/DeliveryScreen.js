@@ -18,8 +18,9 @@ export default class DeliveryScreen extends React.Component {
     render() {
         return (
             <View style={styles.container}>
+                <View style={styles.container}>
                 <TouchableOpacity style={{ backgroundColor: '#006491', height: 40, padding: 10}}>
-                    <Text style={styles.forgot_button}>Edit Address</Text>
+                    <Text style={styles.forgot_button}>Address Details</Text>
                 </TouchableOpacity>
                 <Text style={styles.loginText}>Your Location</Text>
                 <View style={styles.inputView}>
@@ -56,11 +57,53 @@ export default class DeliveryScreen extends React.Component {
                         secureTextEntry={true}
                     />
                 </View>
-
-                <TouchableOpacity style={styles.loginBtn}>
+                </View>
+                <View style={styles.container}>
+                <TouchableOpacity style={{ backgroundColor: '#006491', height: 40, padding: 10}}>
+                    <Text style={styles.forgot_button}>Contact Details</Text>
+                </TouchableOpacity>
+                <Text style={styles.loginText}>Mobile Number</Text>
+                <View style={styles.inputView}>
+                    <TextInput
+                        style={styles.TextInput}
+                        placeholder="+94                            Mobile No*"
+                        placeholderTextColor="#003f5c"
+                    />
+            </View>
+            <Text style={styles.loginText}>First Name</Text>
+                <View style={styles.inputView}>
+                    <TextInput
+                        style={styles.TextInput}
+                        // placeholder="Expire Date"
+                        placeholderTextColor="#003f5c"
+                        secureTextEntry={true}
+                    />
+                </View>
+                <Text style={styles.loginText}>Last Name</Text>
+                <View style={styles.inputView}>
+                    <TextInput
+                        style={styles.TextInput}
+                        // placeholder="Expire Date"
+                        placeholderTextColor="#003f5c"
+                        secureTextEntry={true}
+                    />
+                </View>
+                <Text style={styles.loginText}>Email ID</Text>
+                <View style={styles.inputView}>
+                    <TextInput
+                        style={styles.TextInput}
+                        // placeholder="Expire Date"
+                        placeholderTextColor="#003f5c"
+                        secureTextEntry={true}
+                    />
+                </View>
+                </View>
+                <TouchableOpacity style={styles.loginBtn}
+                 onPress={() => this.props.navigation.navigate('CheckOutScreen')}>
                     <Text style={styles.pay}>Save</Text>
                 </TouchableOpacity>
             </View>
+            
         )
     }
 }
@@ -71,7 +114,7 @@ const styles = StyleSheet.create({
         // backgroundColor: "#F1F5FF",
         backgroundColor: "#ffff",
         padding: 10,
-        paddingTop: 30
+        paddingTop: 10
         // alignItems: "center",
         // justifyContent: "center",
     },
@@ -83,7 +126,7 @@ const styles = StyleSheet.create({
     inputView: {
         // backgroundColor: "#E8E8E8",
         // width: "80%",
-        height: 45,
+        height:5,
         marginBottom: 20,
         alignItems: "center",
     },
@@ -103,13 +146,14 @@ const styles = StyleSheet.create({
         color: "#fff"
     },
     loginBtn: {
-        width: "80%",
+        width: "60%",
         borderRadius: 25,
         height: 50,
         alignItems: "center",
         justifyContent: "center",
         marginTop: 40,
         backgroundColor: "#049C01",
+        marginLeft:55
     },
     pay: {
         color: "#fff"

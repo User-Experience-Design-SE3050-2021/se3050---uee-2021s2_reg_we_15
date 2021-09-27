@@ -96,15 +96,7 @@ export default class CartScreen extends React.Component {
 
                                             </View>
 
-
-
-
-                                            {/* <Text style={styles.price}>{item.price}</Text>
-                                            <TouchableOpacity style={styles.cartBtn}
-                                                onPress={() => this.props.navigation.navigate('CartScreen')}>
-                                                <Text style={styles.btnText}>Add To Cart</Text>
-                                            </TouchableOpacity>
-                                            <TouchableOpacity style={styles.cartBtn}
+                                            {/* <TouchableOpacity style={styles.cartBtn}
                                                 onPress={() => this.props.navigation.navigate('CartScreen')}>
                                                 <Text style={styles.btnText}>Add To Cart</Text>
                                             </TouchableOpacity> */}
@@ -115,6 +107,10 @@ export default class CartScreen extends React.Component {
                         }}
                     />
                 </ScrollView>
+                <TouchableOpacity style={styles.loginBtn}
+                    onPress={() => this.props.navigation.navigate('DeliveryScreen')}>
+                    <Text style={styles.loginText}>Checkout</Text>
+                </TouchableOpacity>
             </View>
         );
     }
@@ -210,4 +206,16 @@ const styles = StyleSheet.create({
         fontSize: 13,
         textAlign: 'center',
     },
+    loginBtn: {
+        width: "80%",
+        borderRadius: 25,
+        height: 50,
+        alignItems: "center",
+        justifyContent: "center",
+        marginTop: 40,
+        backgroundColor: "#E42E4B",
+    },
+    loginText: {
+        color: "#f6f6f6"
+    }
 });
