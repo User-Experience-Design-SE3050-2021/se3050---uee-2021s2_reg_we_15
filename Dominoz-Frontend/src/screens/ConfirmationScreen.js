@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
 import {
     StyleSheet,
@@ -9,18 +10,32 @@ import {
     TouchableOpacity,
 } from "react-native";
 
-export default class ConfirmationScreen extends React.Component {
+export default class SplashScreen extends React.Component {
     static navigationOptions = {
-        title: 'Delivery'
- }
+        title: 'Confirmation'
+    }
 
+    render() {
+        return (
+            <View style={styles.container}>
+                <Image style={styles.image} source={require('../../images/confirm.png')} />
 
- render() {
-    return (
-<View style={styles.container}>
-
-    
-</View>
+            </View>
         )
     }
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: "#fff",
+        alignItems: "center",
+        justifyContent: "center",
+    },
+    image: {
+        width: 250,
+        height: 250,
+        marginTop: -30,
+        marginBottom: 30,
+    },
+});

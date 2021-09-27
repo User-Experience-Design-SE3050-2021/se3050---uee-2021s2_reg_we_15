@@ -1,13 +1,14 @@
 import React from 'react';
-import {View, Text, Button} from 'react-native';
-import {createAppContainer} from 'react-navigation';
-import {createStackNavigator} from 'react-navigation-stack';
+import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 import MainScreen from './src/screens/MainScreen';
 import LoginScreen from './src/screens/LoginScreen';
 import PaymentScreen from './src/screens/Payment';
 import AddressScreen from './src/screens/AddressScreen';
-import MenuScreen from './src/screens/MenuScreen';
-import CartScreen from './src/screens/CartScreen';
+import MenuScreen from './src/screens/Pizza/MenuScreen';
+import PizzaDetailScreen from './src/screens/Pizza/PizzaDetails';
+import CartScreen from './src/screens/Pizza/CartScreen';
 import DeliveryScreen from './src/screens/DeliveryScreen';
 import CheckOutScreen from './src/screens/CheckOutScreen';
 import ConfirmationScreen from './src/screens/ConfirmationScreen';
@@ -26,7 +27,7 @@ class HomeScreen extends React.Component {
   };
   render() {
     return (
-      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <Text>Home Screen</Text>
       </View>
     );
@@ -35,16 +36,21 @@ class HomeScreen extends React.Component {
 
 const AppNavigator = createStackNavigator(
   {
-    MainScreen: {screen: MainScreen},
-    LoginScreen: {screen: LoginScreen},
-    PaymentScreen: {screen: PaymentScreen},
-    AddressScreen: {screen: AddressScreen},
-    MenuScreen: {screen: MenuScreen},
-    CartScreen: {screen: CartScreen},
-    DeliveryScreen: {screen: DeliveryScreen},
-    CheckOutScreen:{screen: CheckOutScreen},
-    ConfirmationScreen:{screen: ConfirmationScreen},
-    SignupScreen :{screen : SignupScreen},
+    MainScreen: { screen: MainScreen },
+    // Maheshi
+    LoginScreen: { screen: LoginScreen },
+    SignupScreen: { screen: SignupScreen },
+    // Perusha
+    DeliveryScreen: { screen: DeliveryScreen },
+    PaymentScreen: { screen: PaymentScreen },
+    CheckOutScreen: { screen: CheckOutScreen },
+    ConfirmationScreen: { screen: ConfirmationScreen },
+    // Achini
+    AddressScreen: { screen: AddressScreen },
+    // Dulya
+    MenuScreen: { screen: MenuScreen },
+    PizzaDetailScreen: { screen: PizzaDetailScreen },
+    CartScreen: { screen: CartScreen },
   },
   {
     defaultNavigationOptions: {
@@ -53,18 +59,10 @@ const AppNavigator = createStackNavigator(
         backgroundColor: '#006491',
       },
       headerRight: (
-        <View style={{flex: 1, flexDirection: 'row'}}>
-          <Button
-            onPress={() => alert('This is a button!')}
-            title="Cart"
-            color="#0000"
-          />
-          <Button
-            onPress={() => alert('This is a button!')}
-            title="Profile"
-            color="#0000"
-          />
-        </View>
+        <Image
+          style={{ width: 30, height: 30, margin: 20 }}
+          source={require("./images/cart.png")} />
+
       ),
     },
     // navigationOptions: {
@@ -72,5 +70,12 @@ const AppNavigator = createStackNavigator(
     // },
   },
 );
+
+const styles = StyleSheet.create({
+  imageForButtonInfo: {
+    width: 28,
+    height: 28,
+  },
+});
 
 export default createAppContainer(AppNavigator);
