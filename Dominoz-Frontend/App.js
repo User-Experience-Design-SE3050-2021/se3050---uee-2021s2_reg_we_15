@@ -10,6 +10,8 @@ import MenuScreen from './src/screens/Pizza/MenuScreen';
 import PizzaDetailScreen from './src/screens/Pizza/PizzaDetails';
 import CartScreen from './src/screens/Pizza/CartScreen';
 import DeliveryScreen from './src/screens/DeliveryScreen';
+import MyAddressScreen from './src/screens/MyAddressScreen';
+import OffersScreen from './src/screens/OffersScreen';
 import CheckOutScreen from './src/screens/CheckOutScreen';
 import ConfirmationScreen from './src/screens/ConfirmationScreen';
 import SignupScreen from './src/screens/SignupScreen';
@@ -36,6 +38,16 @@ class HomeScreen extends React.Component {
 
 const AppNavigator = createStackNavigator(
   {
+    MainScreen: {screen: MainScreen},
+    LoginScreen: {screen: LoginScreen},
+    PaymentScreen: {screen: PaymentScreen},
+    AddressScreen: {screen: AddressScreen},
+    MenuScreen: {screen: MenuScreen},
+    CartScreen: {screen: CartScreen},
+    DeliveryScreen: {screen: DeliveryScreen},
+    MyAddressScreen:{screen: MyAddressScreen},
+    OffersScreen:{screen:OffersScreen},
+    
     MainScreen: { screen: MainScreen },
     // Maheshi
     LoginScreen: { screen: LoginScreen },
