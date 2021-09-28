@@ -107,6 +107,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         marginTop: 40,
         backgroundColor: "#E42E4B",
+        marginLeft:40
     },
     pay: {
         color: "#fff"
