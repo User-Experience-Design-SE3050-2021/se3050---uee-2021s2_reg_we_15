@@ -29,8 +29,9 @@ class HomeScreen extends React.Component {
   render() {
     return (
 
-        <Text>Home Screen</Text>
-      </View>
+      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center' , backgroundColor : '#F1F5FF'}}>
+      <Text>Home Screen</Text>
+    </View>
     );
   }
 }
