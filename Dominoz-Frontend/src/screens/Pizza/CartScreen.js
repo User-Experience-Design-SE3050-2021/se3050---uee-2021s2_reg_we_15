@@ -123,7 +123,7 @@ export default class CartScreen extends React.Component {
                         </View>
                     </TouchableOpacity>
                 </ScrollView>
-                <View style={{ padding: 3, alignItems: 'center', backgroundColor: '#006491' }}>
+                <View style={{ padding: 3, alignItems: 'center', backgroundColor: '' }}>
                     <TouchableOpacity
                         onPress={() => this.props.navigation.navigate('DeliveryScreen')}
                         style={styles.btn}>

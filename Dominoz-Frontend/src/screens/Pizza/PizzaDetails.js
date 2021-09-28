@@ -216,7 +216,7 @@ export default class PizzaDetailScreen extends React.Component {
                     </TouchableOpacity>
                 </ScrollView>
                 {/* Cart button */}
-                <View style={{ padding: 3, alignItems: 'center', backgroundColor: '#006491' }}>
+                <View style={{ padding: 3, alignItems: 'center', backgroundColor: '' }}>
                     <TouchableOpacity
                         onPress={() => this.props.navigation.navigate('CartScreen')}
                         style={styles.btn}>
