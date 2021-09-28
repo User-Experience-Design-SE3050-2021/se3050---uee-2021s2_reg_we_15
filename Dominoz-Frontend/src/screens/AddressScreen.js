@@ -54,8 +54,13 @@ export default class AddressScreen extends React.Component {
                     />
                 </View>
 
-                <TouchableOpacity style={styles.loginBtn}>
+                <TouchableOpacity style={styles.loginBtn}
+                onPress={() => this.props.navigation.navigate('MyAddressScreen')}>
                     <Text style={styles.pay}>Save</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.loginBtn}
+                onPress={() => this.props.navigation.navigate('OffersScreen')}>
+                    <Text style={styles.pay}>Offers</Text>
                 </TouchableOpacity>
             </View>
         )
@@ -82,7 +87,8 @@ const styles = StyleSheet.create({
         // width: "80%",
         height: 45,
         marginBottom: 20,
-        alignItems: "center",
+       // alignItems: "center",
+        marginLeft: 8
     },
     TextInput: {
         height: 50,
@@ -92,27 +98,28 @@ const styles = StyleSheet.create({
         backgroundColor: '#ffff',
         borderBottomWidth: 1,
         borderColor: '#9B9B9B',
-        width: 300
+        width: 380,
     },
     forgot_button: {
         height: 30,
         marginBottom: 30,
-        color: "#006491"
+        color: "#006491",
     },
     loginBtn: {
-        width: "80%",
+        width: "60%",
         borderRadius: 25,
         height: 50,
         alignItems: "center",
         justifyContent: "center",
         marginTop: 40,
-        backgroundColor: "#049C01",
+        backgroundColor: "#E42E4B",
+        marginLeft:80,
     },
     pay: {
         color: "#fff"
     },
     loginText: {
         textAlign: 'left',
-        marginLeft: 8
+        marginLeft: 8,
     }
 });
