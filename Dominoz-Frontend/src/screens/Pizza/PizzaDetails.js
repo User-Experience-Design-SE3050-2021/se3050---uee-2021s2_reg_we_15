@@ -164,7 +164,7 @@ export default class PizzaDetailScreen extends React.Component {
                         {/* Size Row */}
                         {/* <View style={{ borderWidth: 1, borderColor: 'gray', margin: 5, backgroundColor: '#F1F5FF'}}> */}
                         <Text style={styles.selectionTxt}>Choose Size</Text>
-                        <View style={[styles.cardRow]}>
+                        <View style={[styles.cardRow, { borderWidth: 0.5, borderColor: 'gray', margin: 5, marginBottom: 15, backgroundColor: '#F1F5FF', padding: 5 }]}>
                             <FlatList
                                 showsHorizontalScrollIndicator={false}
                                 contentContainerStyle={styles.selectionFlatlist}
@@ -190,7 +190,7 @@ export default class PizzaDetailScreen extends React.Component {
                         {/* </View> */}
                         {/* Toppings */}
                         <Text style={styles.selectionTxt}>Add Toppings</Text>
-                        <View style={[styles.cardRow]}>
+                        <View style={[styles.cardRow, { borderWidth: 0.5, borderColor: 'gray', margin: 5, backgroundColor: '#F1F5FF', padding: 5 }]}>
                             <FlatList
                                 showsHorizontalScrollIndicator={false}
                                 contentContainerStyle={styles.selectionFlatlist}
@@ -216,7 +216,7 @@ export default class PizzaDetailScreen extends React.Component {
                     </TouchableOpacity>
                 </ScrollView>
                 {/* Cart button */}
-                <View style={{ padding: 3, alignItems: 'center' }}>
+                <View style={{ padding: 3, alignItems: 'center', backgroundColor: '#006491' }}>
                     <TouchableOpacity
                         onPress={() => this.props.navigation.navigate('CartScreen')}
                         style={styles.btn}>
@@ -254,7 +254,9 @@ const styles = StyleSheet.create({
         borderBottomLeftRadius: 10,
         borderBottomRightRadius: 10,
         backgroundColor: '#fff',
-        shadowColor: '#000',
+        shadowColor: '#000000',
+        elevation: 5,
+        shadowRadius: 50,
     },
     // Row
     cardRow: {
@@ -278,7 +280,7 @@ const styles = StyleSheet.create({
         padding: 5,
         paddingTop: -3,
         fontSize: 17,
-        // color: 'blue',
+        color: 'gray',
         // FIXME:
         // marginTop: 3,
         // color: '#d2112c',
@@ -335,7 +337,7 @@ const styles = StyleSheet.create({
         width: width * 0.35,
         // width: 130,
         borderRadius: 50,
-        borderWidth: 1,
+        borderWidth: 0.7,
         borderColor: '#000',
         padding: 8,
         backgroundColor: '#fff'
@@ -360,7 +362,7 @@ const styles = StyleSheet.create({
         width: width * 0.30,
         // width: 130,
         borderRadius: 10,
-        borderWidth: 1,
+        borderWidth: 0.5,
         borderColor: '#000',
         padding: 8,
         backgroundColor: '#fff'
@@ -393,11 +395,12 @@ const styles = StyleSheet.create({
         marginRight: '10%',
         borderWidth: 1,
         borderRadius: 10,
-        backgroundColor: '#006491'
+        backgroundColor: '#049C01'
     },
     btnTxt: {
         color: '#fff',
-        fontSize: 13,
+        fontSize: 14,
+        fontWeight: 'bold',
         lineHeight: 40,
         textAlign: 'center',
         // backgroundColor: "#000000c0",

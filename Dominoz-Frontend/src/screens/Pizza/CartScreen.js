@@ -15,24 +15,24 @@ export default class CartScreen extends React.Component {
             data: [
                 {
                     id: 1,
-                    color: "#FF4500",
-                    icon: "https://images3.alphacoders.com/104/1041781.jpg",
-                    name: "Chicken Spicy Pizza",
-                    price: 'Rs. 1189/='
+                    color: '#FF4500',
+                    icon: 'https://images3.alphacoders.com/104/1041781.jpg',
+                    name: 'Chicken Spicy Pizza',
+                    price: 'Rs.1189'
                 },
                 {
                     id: 2,
-                    color: "#87CEEB",
-                    icon: "https://mocah.org/uploads/posts/565777-pizza.jpg",
-                    name: "Detroit Pizza",
-                    price: 'Rs. 1939/='
+                    color: '#87CEEB',
+                    icon: 'https://mocah.org/uploads/posts/565777-pizza.jpg',
+                    name: 'Detroit Pizza',
+                    price: 'Rs.1939'
                 },
                 {
                     id: 3,
-                    color: "#4682B4",
-                    icon: "https://image.freepik.com/free-photo/pizza-pizza-filled-with-tomatoes-salami-olives_140725-1200.jpg",
-                    name: "Sicilian Pizza",
-                    price: 'Rs. 1500/='
+                    color: '#4682B4',
+                    icon: 'https://image.freepik.com/free-photo/pizza-pizza-filled-with-tomatoes-salami-olives_140725-1200.jpg',
+                    name: 'Sicilian Pizza',
+                    price: 'Rs.1500'
                 },
             ]
         };
@@ -68,49 +68,68 @@ export default class CartScreen extends React.Component {
                                         {/* Column for text */}
                                         <View style={styles.imageContainer}>
                                             <Text style={styles.name}>{item.name}</Text>
-
-                                            <View style={{ flex: 1, flexDirection: 'row', width: 100, height: 50 }}>
-
-                                                <View style={{ flex: 1, flexDirection: 'column', width: 100, height: 50, borderWidth: 4 }}>
-                                                    <View style={{ flex: 1, flexDirection: 'row', width: 100 }}>
-                                                        <Text style={styles.price}>1000</Text>
+                                            <View style={{ flex: 1, flexDirection: 'row', width: 170 }}>
+                                                {/* Price button */}
+                                                <View style={{ flex: 1, flexDirection: 'column', }}>
+                                                    <View style={{ flex: 1, flexDirection: 'row', }}>
+                                                        <Text style={styles.price}>{item.price}</Text>
                                                     </View>
-
-                                                    <View style={{ flex: 1, flexDirection: 'row', width: 100, height: 50, borderWidth: 4 }}>
-                                                        <Text style={styles.price}>2000</Text>
-                                                    </View>
-                                                </View>
-
-
-                                                <View style={{ flex: 1, flexDirection: 'column', width: 100, height: 50, borderWidth: 4 }}>
-                                                    <View style={{ flex: 1, flexDirection: 'row', width: 100, height: 50 }}>
-                                                        <Text style={styles.price}>3000</Text>
-                                                    </View>
-
-                                                    <View style={{ flex: 1, flexDirection: 'row', width: 100, height: 50, borderWidth: 4 }}>
-                                                        <Text style={styles.price}>4000</Text>
+                                                    {/* Edit button */}
+                                                    <View style={{ flex: 1, flexDirection: 'row' }}>
+                                                        <TouchableOpacity style={[styles.cartBtn, { backgroundColor: '#0970CE' }]}
+                                                            onPress={() => this.props.navigation.navigate('CartScreen')}>
+                                                            <Text style={styles.btnText}>Edit</Text>
+                                                        </TouchableOpacity>
                                                     </View>
                                                 </View>
-
-
-
+                                                {/* Increment button */}
+                                                <View style={{ flex: 1, flexDirection: 'column', }}>
+                                                    <View style={{ flex: 1, flexDirection: 'row' }}>
+                                                        <TouchableOpacity style={[styles.cartBtn, { marginTop: 0, }]}
+                                                            onPress={() => this.props.navigation.navigate('CartScreen')}>
+                                                            <Text style={styles.btnText}>-   1   +</Text>
+                                                        </TouchableOpacity>
+                                                    </View>
+                                                    {/* Delete button */}
+                                                    <View style={{ flex: 1, flexDirection: 'row', }}>
+                                                        <TouchableOpacity style={[styles.cartBtn, { backgroundColor: '#D70000' }]}
+                                                            onPress={() => this.props.navigation.navigate('CartScreen')}>
+                                                            <Text style={styles.btnText}>Remove</Text>
+                                                        </TouchableOpacity>
+                                                    </View>
+                                                </View>
                                             </View>
-
-                                            {/* <TouchableOpacity style={styles.cartBtn}
-                                                onPress={() => this.props.navigation.navigate('CartScreen')}>
-                                                <Text style={styles.btnText}>Add To Cart</Text>
-                                            </TouchableOpacity> */}
                                         </View>
                                     </View>
                                 </TouchableOpacity>
                             )
                         }}
                     />
+                    {/* Total */}
+                    <TouchableOpacity
+                        style={{ flex: 1, flexDirection: 'row', backgroundColor: '#fff', margin: 10, padding: 10, borderWidth: 0.5 }}
+                        activeOpacity={0.5}
+                    >
+                        <View style={{ width: width * 0.4 }}>
+                            <Text style={{ color: 'gray' }}>Sub Total :</Text>
+                            <Text style={{ borderBottomWidth: 1, color: 'gray' }}>Discount :</Text>
+                            <Text style={{ marginTop: 5, fontSize: 15, fontWeight: 'bold' }}>Grand Total :</Text>
+
+                        </View>
+                        <View style={{ width: width * 0.4, alignItems: 'flex-end' }}>
+                            <Text style={{ color: 'gray' }}>Rs. 3138.00</Text>
+                            <Text style={{ borderBottomWidth: 1, width: 145, textAlign: 'right', color: 'gray' }}>Rs. 0.00</Text>
+                            <Text style={{ marginTop: 5, fontSize: 15, fontWeight: 'bold' }}>Rs. 3138.00</Text>
+                        </View>
+                    </TouchableOpacity>
                 </ScrollView>
-                <TouchableOpacity style={styles.loginBtn}
-                    onPress={() => this.props.navigation.navigate('DeliveryScreen')}>
-                    <Text style={styles.loginText}>Checkout</Text>
-                </TouchableOpacity>
+                <View style={{ padding: 3, alignItems: 'center', backgroundColor: '#006491' }}>
+                    <TouchableOpacity
+                        onPress={() => this.props.navigation.navigate('DeliveryScreen')}
+                        style={styles.btn}>
+                        <Text style={styles.btnTxt}>Checkout</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
         );
     }
@@ -155,6 +174,7 @@ const styles = StyleSheet.create({
         marginRight: 10,
     },
     card: {
+        elevation: 8,
         height: null,
         // paddingTop: 10,
         // paddingBottom: 10,
@@ -164,6 +184,13 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         marginBottom: 15,
         borderRadius: 15,
+        shadowColor: '#000000',
+        // shadowOffset: {
+        // 	width: 10,
+        // 	height: 10
+        // },
+        shadowRadius: 50,
+        // shadowOpacity: 5.0
     },
     cardContent: {
         flexDirection: 'row',
@@ -173,8 +200,8 @@ const styles = StyleSheet.create({
         // marginTop: -40,
     },
     image: {
-        width: 130,
-        height: 110,
+        width: 140,
+        height: 100,
         resizeMode: 'cover',
         borderRadius: 10,
     },
@@ -189,33 +216,52 @@ const styles = StyleSheet.create({
         fontSize: 15,
         marginLeft: 10,
         color: '#FF5833',
-        marginTop: -3
     },
     cartBtn: {
-        padding: 3,
-        borderRadius: 15,
+        justifyContent: 'center',
+        margin: 5,
+        borderRadius: 5,
         // marginHorizontal: 3,
         backgroundColor: '#049C01',
         marginTop: '10%',
-        width: 100,
-        marginLeft: '35%'
+        width: 65,
+        // marginLeft: '35%'
         // height: 30
     },
     btnText: {
         color: '#fff',
-        fontSize: 13,
+        fontSize: 14,
         textAlign: 'center',
     },
     loginBtn: {
-        width: "80%",
+        width: '80%',
         borderRadius: 25,
         height: 50,
-        alignItems: "center",
-        justifyContent: "center",
+        alignItems: 'center',
+        justifyContent: 'center',
         marginTop: 40,
-        backgroundColor: "#E42E4B",
+        backgroundColor: '#E42E4B',
     },
     loginText: {
-        color: "#f6f6f6"
-    }
+        color: '#f6f6f6'
+    },
+    btn: {
+        padding: 0,
+        width: 140,
+        marginLeft: '10%',
+        marginRight: '10%',
+        borderWidth: 1,
+        borderRadius: 10,
+        backgroundColor: '#E42E4B'
+    },
+    btnTxt: {
+        color: '#fff',
+        fontSize: 14,
+        fontWeight: 'bold',
+        lineHeight: 40,
+        textAlign: 'center',
+        // backgroundColor: "#000000c0",
+        // backgroundColor: '#006491',
+        // borderRadius: 50,
+    },
 });

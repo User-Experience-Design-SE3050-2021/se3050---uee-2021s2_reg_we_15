@@ -117,7 +117,7 @@ export default class MenuScreen extends React.Component {
 						renderItem={({ item }) => {
 							return (
 								<TouchableOpacity
-									style={[styles.card, { borderColor: '#00BFFF' }]}
+									style={[styles.card, { borderColor: '#000',  }]}
 									onPress={() => { this.cardClickEventListener(item) }}
 								>
 									{/* Row */}
@@ -185,6 +185,7 @@ const styles = StyleSheet.create({
 		marginRight: 10,
 	},
 	card: {
+		elevation: 8,
 		height: null,
 		// paddingTop: 10,
 		// paddingBottom: 10,
@@ -194,6 +195,13 @@ const styles = StyleSheet.create({
 		flexDirection: 'column',
 		marginBottom: 15,
 		borderRadius: 15,
+		shadowColor: '#000000',
+		// shadowOffset: {
+		// 	width: 10,
+		// 	height: 10
+		// },
+		shadowRadius: 50,
+		// shadowOpacity: 5.0
 	},
 	cardContent: {
 		flexDirection: 'row',
