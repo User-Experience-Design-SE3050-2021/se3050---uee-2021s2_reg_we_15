@@ -105,9 +105,9 @@ const styles = StyleSheet.create({
         height: 50,
         alignItems: "center",
         justifyContent: "center",
-        marginTop: 40,
+        marginTop: 120,
         backgroundColor: "#E42E4B",
-        marginLeft:40
+        marginLeft:35
     },
     pay: {
         color: "#fff"
