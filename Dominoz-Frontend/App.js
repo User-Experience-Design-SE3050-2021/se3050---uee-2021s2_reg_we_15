@@ -46,8 +46,8 @@ const AppNavigator = createStackNavigator(
     CartScreen: {screen: CartScreen},
     DeliveryScreen: {screen: DeliveryScreen},
     MyAddressScreen:{screen: MyAddressScreen},
-    OffersScreen:{screen:OffersScreen}
-    },
+    OffersScreen:{screen:OffersScreen},
+    
     MainScreen: { screen: MainScreen },
     // Maheshi
     LoginScreen: { screen: LoginScreen },

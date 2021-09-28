@@ -8,6 +8,7 @@ import {
     TextInput,
     Button,
     TouchableOpacity,
+    ScrollView
 } from "react-native";
 
 export default class AddressScreen extends React.Component {
@@ -18,6 +19,11 @@ export default class AddressScreen extends React.Component {
     render() {
         return (
             <View style={styles.container}>
+                <ScrollView>
+                <View style={styles.container}>
+                    <TouchableOpacity style={{ backgroundColor: '#006491', height: 40, padding: 10, marginBottom:10 }}>
+                        <Text style={styles.forgot_button}>Add Your Address</Text>
+                        </TouchableOpacity>
                 <Text style={styles.loginText}>Your Location</Text>
                 <View style={styles.inputView}>
                     <TextInput
@@ -34,34 +40,42 @@ export default class AddressScreen extends React.Component {
                         placeholderTextColor="#003f5c"
                         secureTextEntry={true}
                     />
-                </View>
-                <Text style={styles.loginText}>City</Text>
-                <View style={styles.inputView}>
-                    <TextInput
-                        style={styles.TextInput}
-                        // placeholder="CVC*"
-                        placeholderTextColor="#003f5c"
-                        secureTextEntry={true}
-                    />
-                </View>
-                <Text style={styles.loginText}>Street Name</Text>
-                <View style={styles.inputView}>
-                    <TextInput
-                        style={styles.TextInput}
-                        // placeholder="Expire Date"
-                        placeholderTextColor="#003f5c"
-                        secureTextEntry={true}
-                    />
-                </View>
-
+               <View style={{flex: 1, flexDirection: 'row'}}>
+                        <View style={{flex: 1, flexDirection: 'column', width: 10,marginTop:10}}>
+                                <Text style={styles.loginText}>City</Text>
+                                <View style={styles.inputView}>
+                                    <TextInput
+                                        style={[styles.TextInput, {width: 165}]}
+                                        // placeholder="CVC*"
+                                        placeholderTextColor="#003f5c"
+                                        secureTextEntry={true}
+                                    />
+                                </View>
+                        </View>
+                            <View style={{ flex: 1, flexDirection: 'column', width: 10,marginTop:10}}>
+                                <Text style={styles.loginText}>Street Name</Text>
+                                <View style={styles.inputView}>
+                                    <TextInput
+                                        style={[styles.TextInput, {width: 175}]}
+                                        // placeholder="Expire Date"
+                                        placeholderTextColor="#003f5c"
+                                        secureTextEntry={true}
+                                    />
+                                </View>
+                        </View>
+                    </View>
+                    </View>
+                    </View>
                 <TouchableOpacity style={styles.loginBtn}
                 onPress={() => this.props.navigation.navigate('MyAddressScreen')}>
                     <Text style={styles.pay}>Save</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.loginBtn}
+                {/* <TouchableOpacity style={styles.loginBtn}
                 onPress={() => this.props.navigation.navigate('OffersScreen')}>
                     <Text style={styles.pay}>Offers</Text>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
+            
+            </ScrollView>
             </View>
         )
     }
@@ -73,7 +87,7 @@ const styles = StyleSheet.create({
         // backgroundColor: "#F1F5FF",
         backgroundColor: "#ffff",
         padding: 10,
-        paddingTop: 30
+        paddingTop: 20
         // alignItems: "center",
         // justifyContent: "center",
     },
@@ -85,7 +99,7 @@ const styles = StyleSheet.create({
     inputView: {
         // backgroundColor: "#E8E8E8",
         // width: "80%",
-        height: 45,
+        height: 75,
         marginBottom: 20,
        // alignItems: "center",
         marginLeft: 8
@@ -98,12 +112,13 @@ const styles = StyleSheet.create({
         backgroundColor: '#ffff',
         borderBottomWidth: 1,
         borderColor: '#9B9B9B',
-        width: 380,
+        width: 370,
     },
     forgot_button: {
         height: 30,
         marginBottom: 30,
-        color: "#006491",
+        color: "#fff",
+        textAlign: 'center',
     },
     loginBtn: {
         width: "60%",
@@ -111,7 +126,7 @@ const styles = StyleSheet.create({
         height: 50,
         alignItems: "center",
         justifyContent: "center",
-        marginTop: 40,
+        marginTop: 80,
         backgroundColor: "#E42E4B",
         marginLeft:80,
     },

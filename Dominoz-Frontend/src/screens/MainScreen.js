@@ -55,6 +55,14 @@ export default class SplashScreen extends React.Component {
               <Text style={styles.btnTxt}>Sign Up</Text>
             </TouchableOpacity>
           </View>
+          <View style={styles.column}>
+            <TouchableOpacity
+              onPress={() => this.props.navigation.navigate('OffersScreen')}
+              style={styles.btn}
+              activeOpacity={0.5}>
+              <Text style={styles.btnTxt}>Offers</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
     );
