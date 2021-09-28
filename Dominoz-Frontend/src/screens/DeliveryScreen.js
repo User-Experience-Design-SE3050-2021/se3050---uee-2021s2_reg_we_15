@@ -109,13 +109,32 @@ export default class DeliveryScreen extends React.Component {
                             // placeholder="Expire Date"
                             placeholderTextColor="#003f5c"
                             secureTextEntry={true}
-                        />
+                            />
+                        </View>
+
+                        <View style={styles.container2}>
+                            <View style={{ flex: 1, flexDirection: 'column' }}>
+                                <Image style={styles.image} source={{ uri: 'https://cdn-icons-png.flaticon.com/128/217/217425.png' }} />
+
+                            </View>
+                            <View style={{ flex: 1, flexDirection: 'column' }}>
+                                <Image style={styles.image} source={{ uri: 'https://cdn-icons-png.flaticon.com/128/888/888870.png' }} />
+
+                            </View>
+                            <View style={{ flex: 1, flexDirection: 'column' }}>
+                                <Image style={styles.image} source={{ uri: 'https://cdn-icons-png.flaticon.com/128/1019/1019607.png' }} />
+
+                            </View>
+                            <View style={{ flex: 1, flexDirection: 'column' }}>
+                                <Image style={styles.image} source={{ uri: 'https://cdn-icons-png.flaticon.com/128/825/825539.png' }} />
+
+                            </View>
+                        </View>
+                        <TouchableOpacity style={styles.loginBtn}
+                            onPress={() => this.props.navigation.navigate('CheckOutScreen')}>
+                            <Text style={styles.pay}>Save</Text>
+                        </TouchableOpacity>
                     </View>
-                    <TouchableOpacity style={styles.loginBtn}
-                        onPress={() => this.props.navigation.navigate('CheckOutScreen')}>
-                        <Text style={styles.pay}>Save</Text>
-                    </TouchableOpacity>
-                </View>
                 </ScrollView>
             </View>
 
@@ -133,10 +152,23 @@ const styles = StyleSheet.create({
         // alignItems: "center",
         // justifyContent: "center",
     },
+    container2:{
+        flex : 0.35,
+        flexDirection : 'row',
+        padding : 10,
+        backgroundColor: "#fff",
+        borderColor : "#FDFDFD",
+        borderWidth : 1,
+        borderRadius : 20,
+        marginBottom : 15,
+        height : 0,
+        width : 320,
+        marginTop : -110,
+    },
     image: {
-        marginBottom: 40,
-        width: 200,
-        height: 200
+        width: 50,
+        height: 50,
+        marginTop:130
     },
     inputView: {
         // backgroundColor: "#E8E8E8",
@@ -166,9 +198,10 @@ const styles = StyleSheet.create({
         height: 50,
         alignItems: "center",
         justifyContent: "center",
-        marginTop: 40,
-        backgroundColor: "#049C01",
-        marginLeft: 55
+        marginTop: 170,
+        backgroundColor: "#E42E4B",
+        marginLeft: 55,
+        
     },
     pay: {
         color: "#fff"
