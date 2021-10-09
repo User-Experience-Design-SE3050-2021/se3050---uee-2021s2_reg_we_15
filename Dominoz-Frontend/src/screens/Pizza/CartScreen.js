@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
+import axios from 'axios';
 import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView, FlatList, Dimensions, Button } from 'react-native';
 
 const { width, height } = Dimensions.get('window');
@@ -16,26 +17,43 @@ export default class CartScreen extends React.Component {
                 {
                     id: 1,
                     color: '#FF4500',
-                    icon: 'https://images3.alphacoders.com/104/1041781.jpg',
+                    icon: 'https://image.freepik.com/free-photo/pizza-with-fresh-champignons-bacon-smoked-chicken-fillet-mozzarella-cheese-sliced-tomato-green-onions-piece-is-cut-off-from-pizza-white-background-isolated-closeup_323569-268.jpg',
                     name: 'Chicken Spicy Pizza',
-                    price: 'Rs.1189'
+                    price: 'Rs.1189',
                 },
                 {
                     id: 2,
                     color: '#87CEEB',
-                    icon: 'https://mocah.org/uploads/posts/565777-pizza.jpg',
+                    icon: 'https://previews.123rf.com/images/gbh007/gbh0071806/gbh007180600466/103181956-pizza-with-chicken-and-vegetables-on-white-background.jpg',
                     name: 'Detroit Pizza',
-                    price: 'Rs.1939'
+                    price: 'Rs.1939',
                 },
                 {
                     id: 3,
                     color: '#4682B4',
-                    icon: 'https://image.freepik.com/free-photo/pizza-pizza-filled-with-tomatoes-salami-olives_140725-1200.jpg',
+                    icon: 'https://previews.123rf.com/images/sacura123/sacura1231703/sacura123170300159/74828679-pepperoni-pizza-isolated-on-white-background.jpg',
                     name: 'Sicilian Pizza',
-                    price: 'Rs.1500'
+                    price: 'Rs.1500',
                 },
-            ]
+            ],
         };
+        this.getCart = this.getCart.bind(this);
+    }
+
+    // componentDidMount = () => {
+    //     this.getMenu();
+    // }
+
+    getCart = () => {
+        var url = 'http://192.168.8.105:8080/menu/';
+        axios.get(url)
+            .then(response => {
+                this.setState({ orders: response.data.data });
+            })
+            .catch(error => {
+                console.log(error);
+                alert(error.message);
+            });
     }
 
     cardClickEventListener = (item) => {
@@ -48,89 +66,69 @@ export default class CartScreen extends React.Component {
             <View style={styles.container}>
                 <ScrollView>
                     <FlatList
-                        style={styles.notificationList}
+                        style={styles.flatList}
                         data={this.state.data}
-                        keyExtractor={(item) => {
-                            return item.id;
-                        }}
+                        keyExtractor={(item) => { return item.id; }}
                         renderItem={({ item }) => {
                             return (
                                 <TouchableOpacity
-                                    style={[styles.card, { borderColor: '#00BFFF' }]}
-                                    onPress={() => { this.cardClickEventListener(item) }}
-                                >
+                                    style={styles.card}
+                                    // TODO: update this to edit
+                                    onPress={() => { this.cardClickEventListener(item) }}>
                                     {/* Row */}
                                     <View style={styles.cardContent}>
                                         {/* Column for image */}
                                         <View style={styles.imageContainer}>
-                                            <Image style={[styles.image, styles.imageContent]} source={{ uri: item.icon }} />
+                                            <Image style={styles.image} source={{ uri: item.icon }} />
                                         </View>
                                         {/* Column for text */}
-                                        <View style={styles.imageContainer}>
+                                        <View style={[styles.imageContainer, { marginLeft: 10 }]}>
                                             <Text style={styles.name}>{item.name}</Text>
-                                            <View style={{ flex: 1, flexDirection: 'row', width: 170 }}>
-                                                {/* Price button */}
-                                                <View style={{ flex: 1, flexDirection: 'column', }}>
-                                                    <View style={{ flex: 1, flexDirection: 'row', }}>
-                                                        <Text style={styles.price}>{item.price}</Text>
-                                                    </View>
-                                                    {/* Edit button */}
-                                                    <View style={{ flex: 1, flexDirection: 'row' }}>
-                                                        <TouchableOpacity style={[styles.cartBtn, { backgroundColor: '#0970CE' }]}
-                                                            onPress={() => this.props.navigation.navigate('CartScreen')}>
-                                                            <Text style={styles.btnText}>Edit</Text>
-                                                        </TouchableOpacity>
-                                                    </View>
-                                                </View>
-                                                {/* Increment button */}
-                                                <View style={{ flex: 1, flexDirection: 'column', }}>
-                                                    <View style={{ flex: 1, flexDirection: 'row' }}>
-                                                        <TouchableOpacity style={[styles.cartBtn, { marginTop: 0, }]}
-                                                            onPress={() => this.props.navigation.navigate('CartScreen')}>
-                                                            <Text style={styles.btnText}>-   1   +</Text>
-                                                        </TouchableOpacity>
-                                                    </View>
-                                                    {/* Delete button */}
-                                                    <View style={{ flex: 1, flexDirection: 'row', }}>
-                                                        <TouchableOpacity style={[styles.cartBtn, { backgroundColor: '#D70000' }]}
-                                                            onPress={() => this.props.navigation.navigate('CartScreen')}>
-                                                            <Text style={styles.btnText}>Remove</Text>
-                                                        </TouchableOpacity>
-                                                    </View>
-                                                </View>
-                                            </View>
+                                            <Text style={styles.price}>{item.price}</Text>
+                                            <TouchableOpacity style={styles.incrementBtn}
+                                                onPress={() => this.props.navigation.navigate('CartScreen')}>
+                                                <Text style={styles.incrementBtnTxt}>-   1   +</Text>
+                                            </TouchableOpacity>
+                                            <View style={styles.inlineView} />
+                                        </View>
+                                        {/* Column for bin */}
+                                        <View style={[styles.imageContainer, { marginLeft: -20, alignSelf: 'center' }]}>
+                                            <TouchableOpacity style={styles.deleteBtn}
+                                                onPress={() => this.props.navigation.navigate('CartScreen')}>
+                                                <Image
+                                                    style={styles.binImage}
+                                                    source={require('../../../images/trash.png')}
+                                                />
+                                            </TouchableOpacity>
                                         </View>
                                     </View>
                                 </TouchableOpacity>
-                            )
+                            );
                         }}
                     />
-                    {/* Total */}
-                    <TouchableOpacity
-                        style={{ flex: 1, flexDirection: 'row', backgroundColor: '#fff', margin: 10, padding: 10, borderWidth: 0.5 }}
-                        activeOpacity={0.5}
-                    >
-                        <View style={{ width: width * 0.4 }}>
-                            <Text style={{ color: 'gray' }}>Sub Total :</Text>
-                            <Text style={{ borderBottomWidth: 1, color: 'gray' }}>Discount :</Text>
-                            <Text style={{ marginTop: 5, fontSize: 15, fontWeight: 'bold' }}>Grand Total :</Text>
-
-                        </View>
-                        <View style={{ width: width * 0.4, alignItems: 'flex-end' }}>
-                            <Text style={{ color: 'gray' }}>Rs. 3138.00</Text>
-                            <Text style={{ borderBottomWidth: 1, width: 145, textAlign: 'right', color: 'gray' }}>Rs. 0.00</Text>
-                            <Text style={{ marginTop: 5, fontSize: 15, fontWeight: 'bold' }}>Rs. 3138.00</Text>
-                        </View>
-                    </TouchableOpacity>
                 </ScrollView>
-                <View style={{ padding: 3, alignItems: 'center', backgroundColor: '' }}>
+                {/* Total */}
+                <TouchableOpacity style={styles.priceCard} activeOpacity={0.5}>
+                    <View style={styles.priceLabel}>
+                        <Text style={styles.priceLabelText}>Sub Total :</Text>
+                        <Text style={[styles.priceLabelText, { borderBottomWidth: 1 }]}>Discount :</Text>
+                        <Text style={styles.totalPrice}>Grand Total :</Text>
+                    </View>
+                    <View style={[styles.priceLabel, { alignItems: 'flex-end' }]}>
+                        <Text style={{ color: 'gray', padding: 5 }}>Rs. 3138.00</Text>
+                        <Text style={[styles.priceLabelText, { borderBottomWidth: 1, width: 145, textAlign: 'right' }]}>Rs. 0.00</Text>
+                        <Text style={styles.totalPrice}>Rs. 3138.00</Text>
+                    </View>
+                </TouchableOpacity>
+                {/* Checkout button */}
+                <View style={styles.btnView}>
                     <TouchableOpacity
                         onPress={() => this.props.navigation.navigate('DeliveryScreen')}
                         style={styles.btn}>
                         <Text style={styles.btnTxt}>Checkout</Text>
                     </TouchableOpacity>
                 </View>
-            </View>
+            </View >
         );
     }
 }
@@ -139,120 +137,111 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        paddingTop: 10,
         backgroundColor: '#F1F5FF',
-        padding: 8,
-
     },
     flatList: {
-        paddingHorizontal: 16,
-        paddingVertical: 16,
-    },
-    notificationList: {
         marginTop: 5,
         padding: 8,
-    },
-    cardContainer: {
-        height: 40,
-        width: width * 0.3,
-        marginRight: 8,
-    },
-    tag: {
-        height: 40,
-        width: width * 0.3,
-        borderRadius: 10,
-        padding: 10,
-        backgroundColor: '#E42E4B',
-    },
-    text: {
-        color: 'white',
-        fontWeight: 'bold',
-        textAlign: 'center',
     },
     imageContainer: {
         flexDirection: 'column',
         marginRight: 10,
     },
     card: {
-        elevation: 8,
-        height: null,
-        // paddingTop: 10,
-        // paddingBottom: 10,
-        padding: 5,
-        // marginTop: 5,
-        backgroundColor: 'white',
         flexDirection: 'column',
+        height: null,
+        margin: 5,
         marginBottom: 15,
+        padding: 5,
+        backgroundColor: 'white',
         borderRadius: 15,
-        shadowColor: '#000000',
-        // shadowOffset: {
-        // 	width: 10,
-        // 	height: 10
-        // },
-        shadowRadius: 50,
-        // shadowOpacity: 5.0
     },
     cardContent: {
         flexDirection: 'row',
-        // marginLeft: 10,
-    },
-    imageContent: {
-        // marginTop: -40,
     },
     image: {
-        width: 140,
-        height: 100,
-        resizeMode: 'cover',
+        width: 100,
+        height: 90,
+        resizeMode: 'contain',
         borderRadius: 10,
     },
     name: {
-        // textAlign: 'left',
         fontSize: 16,
         fontWeight: '500',
         margin: 5,
-        // alignSelf: 'left'
+        color: '#e51837',
     },
     price: {
         fontSize: 15,
         marginLeft: 10,
-        color: '#FF5833',
+        color: '#0078ad',
     },
-    cartBtn: {
+    incrementBtn: {
+        width: 65,
         justifyContent: 'center',
         margin: 5,
+        marginTop: 10,
         borderRadius: 5,
-        // marginHorizontal: 3,
         backgroundColor: '#049C01',
-        marginTop: '10%',
-        width: 65,
-        // marginLeft: '35%'
-        // height: 30
     },
-    btnText: {
+    inlineView: {
+        flex: 1,
+        flexDirection: 'row',
+        width: 170,
+    },
+    deleteBtn: {
+        width: 40,
+        height: 40,
+        justifyContent: 'center',
+        alignItems: 'center',
+        margin: 5,
+        marginTop: '10%',
+        borderRadius: 5,
+        backgroundColor: '#E10032',
+    },
+    incrementBtnTxt: {
         color: '#fff',
         fontSize: 14,
         textAlign: 'center',
     },
-    loginBtn: {
-        width: '80%',
-        borderRadius: 25,
-        height: 50,
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginTop: 40,
-        backgroundColor: '#E42E4B',
+    binImage: {
+        width: 20,
+        height: 20,
     },
-    loginText: {
-        color: '#f6f6f6'
+    priceCard: {
+        flexDirection: 'row',
+        height: 150,
+        justifyContent: 'center',
+        marginTop: 10,
+        paddingTop: 20,
+        paddingBottom: 20,
+        backgroundColor: '#fff',
+        borderTopLeftRadius: 30,
+        borderTopRightRadius: 30,
+    },
+    priceLabel: {
+        width: width * 0.4,
+    },
+    priceLabelText: {
+        color: 'gray',
+        padding: 5,
+    },
+    totalPrice: {
+        padding: 5,
+        marginTop: 5,
+        fontSize: 15,
+        fontWeight: 'bold',
+    },
+    btnView: {
+        padding: 3,
+        alignItems: 'center',
+        backgroundColor: '#fff',
     },
     btn: {
         padding: 0,
-        width: 140,
-        marginLeft: '10%',
-        marginRight: '10%',
-        borderWidth: 1,
+        width: 240,
         borderRadius: 10,
-        backgroundColor: '#E42E4B'
+        backgroundColor: '#E42E4B',
     },
     btnTxt: {
         color: '#fff',
@@ -260,8 +249,5 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         lineHeight: 40,
         textAlign: 'center',
-        // backgroundColor: "#000000c0",
-        // backgroundColor: '#006491',
-        // borderRadius: 50,
     },
 });

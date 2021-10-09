@@ -16,52 +16,53 @@ const size = [
     {
         id: 1,
         name: 'Regular',
-        icon: pizza_s
+        icon: pizza_s,
     },
     {
         id: 2,
         name: 'Medium',
-        icon: pizza_m
+        icon: pizza_m,
     },
     {
         id: 3,
         name: 'Large',
-        icon: pizza_l
-    }
+        icon: pizza_l,
+    },
 ];
 
 const toppings = [
     {
         id: 1,
         name: 'Cheese',
-        icon: cheese
+        icon: cheese,
     },
     {
         id: 2,
         name: 'Onion',
-        icon: onion
+        icon: onion,
     },
     {
         id: 3,
         name: 'Tomato',
-        icon: tomato
+        icon: tomato,
     },
     {
         id: 4,
         name: 'Pineapple',
-        icon: pineapple
+        icon: pineapple,
     },
     {
         id: 5,
         name: 'Capsicum',
-        icon: capsicum
+        icon: capsicum,
     },
 ];
 
 
 export default class PizzaDetailScreen extends React.Component {
     static navigationOptions = {
-        title: 'Details'
+        title: 'Details',
+        // headerShown: false,
     };
 
     constructor(props) {
@@ -70,7 +71,7 @@ export default class PizzaDetailScreen extends React.Component {
             data: {},
             selectedSize: 0,
             toppingsData: toppings,
-            selectedToppings: []
+            selectedToppings: [],
         };
     }
 
@@ -78,7 +79,7 @@ export default class PizzaDetailScreen extends React.Component {
         const { navigation } = this.props;
         const param = navigation.getParam('item');
         this.setState({
-            data: param
+            data: param,
         });
 
     }
@@ -129,10 +130,8 @@ export default class PizzaDetailScreen extends React.Component {
     }
 
     arrayRemove(arr, value) {
-
         return arr.filter(function (geeks) {
-            return geeks != value;
-
+            return geeks !== value;
         });
     }
 
@@ -157,14 +156,14 @@ export default class PizzaDetailScreen extends React.Component {
                             <Text style={styles.pizzaPrize}>{this.state.data.price}</Text>
                         </View>
                         {/* Row for Description */}
+                        <Text style={styles.selectionTxt}>Description</Text>
                         <View style={styles.cardRow}>
                             <Text style={styles.pizzaDescription}>
                                 Crispy chicken bacon, jalapeno and pineapple titbits on a mozzarella crust</Text>
                         </View>
                         {/* Size Row */}
-                        {/* <View style={{ borderWidth: 1, borderColor: 'gray', margin: 5, backgroundColor: '#F1F5FF'}}> */}
-                        <Text style={styles.selectionTxt}>Choose Size</Text>
-                        <View style={[styles.cardRow, { borderWidth: 0.5, borderColor: 'gray', margin: 5, marginBottom: 15, backgroundColor: '#F1F5FF', padding: 5 }]}>
+                        <Text style={styles.selectionTxt}>Size</Text>
+                        <View style={[styles.cardRow, { marginLeft: 25, marginRight: 25 }]}>
                             <FlatList
                                 showsHorizontalScrollIndicator={false}
                                 contentContainerStyle={styles.selectionFlatlist}
@@ -187,10 +186,9 @@ export default class PizzaDetailScreen extends React.Component {
                                 }}
                             />
                         </View>
-                        {/* </View> */}
                         {/* Toppings */}
-                        <Text style={styles.selectionTxt}>Add Toppings</Text>
-                        <View style={[styles.cardRow, { borderWidth: 0.5, borderColor: 'gray', margin: 5, backgroundColor: '#F1F5FF', padding: 5 }]}>
+                        <Text style={styles.selectionTxt}>Toppings</Text>
+                        <View style={[styles.cardRow, { marginLeft: 25, marginRight: 25 }]}>
                             <FlatList
                                 showsHorizontalScrollIndicator={false}
                                 contentContainerStyle={styles.selectionFlatlist}
@@ -199,13 +197,10 @@ export default class PizzaDetailScreen extends React.Component {
                                 keyExtractor={(item) => item.id.toString()}
                                 renderItem={({ item }) => {
                                     return (
-                                        <TouchableOpacity style={[styles.cardContainer, { height: 65 }]} onPress={() => this.onPressHandler(item.id)}>
-                                            <View style={[styles.toppingList, item.selected == true ? styles.toppingSelected : {}]}>
+                                        <TouchableOpacity style={[styles.cardContainer, { width: width * 0.24 }]} onPress={() => this.onPressHandler(item.id)}>
+                                            <View style={[styles.toppingList, item.selected === true ? styles.toppingSelected : {}]}>
                                                 <View style={styles.topIconContainer}>
                                                     <Image style={styles.icon} source={item.icon} />
-                                                </View>
-                                                <View style={styles.topIconContainer}>
-                                                    <Text style={[styles.sizeTxt, item.selected == true ? styles.sizeSelectedTxt : {}, { marginLeft: '0%', marginTop: '5%' }]}>{item.name}</Text>
                                                 </View>
                                             </View>
                                         </TouchableOpacity>
@@ -216,16 +211,15 @@ export default class PizzaDetailScreen extends React.Component {
                     </TouchableOpacity>
                 </ScrollView>
                 {/* Cart button */}
-                <View style={{ padding: 3, alignItems: 'center', backgroundColor: '' }}>
+                <View style={styles.btnView}>
                     <TouchableOpacity
                         onPress={() => this.props.navigation.navigate('CartScreen')}
                         style={styles.btn}>
                         <Text style={styles.btnTxt}>Add To Cart</Text>
                     </TouchableOpacity>
                 </View>
-                {/* </ScrollView> */}
             </View>
-        )
+        );
     }
 }
 
@@ -233,14 +227,11 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        backgroundColor: '#ecf0f1',
-        // padding: 8,
-        // paddingTop: 10,
     },
     pizzaImage: {
         width: width,
-        height: width * 0.8,
-        resizeMode: 'cover'
+        height: width * 0.7,
+        resizeMode: 'cover',
     },
     pizzaCard: {
         flexDirection: 'column',
@@ -248,43 +239,33 @@ const styles = StyleSheet.create({
         paddingTop: 10,
         paddingBottom: 10,
         marginBottom: 0,
-        marginTop: -100,
-        borderTopLeftRadius: 70,
-        borderTopRightRadius: 70,
-        borderBottomLeftRadius: 10,
-        borderBottomRightRadius: 10,
+        marginTop: -20,
+        borderTopLeftRadius: 20,
+        borderTopRightRadius: 20,
         backgroundColor: '#fff',
         shadowColor: '#000000',
-        elevation: 5,
         shadowRadius: 50,
     },
-    // Row
     cardRow: {
         flexDirection: 'row',
         alignSelf: 'center',
         marginLeft: 10,
         marginRight: 10,
     },
-    // Column
     imageContainer: {
         flexDirection: 'column',
-        width: width * 0.5
+        width: width * 0.5,
     },
     pizzaName: {
-        color: '#000',
-        fontSize: 22,
-        fontWeight: 'bold',
+        color: '#e51837',
+        fontSize: 24,
         padding: 5,
     },
     pizzaPrize: {
         padding: 5,
         paddingTop: -3,
         fontSize: 17,
-        color: 'gray',
-        // FIXME:
-        // marginTop: 3,
-        // color: '#d2112c',
-        // alignSelf: 'center'
+        color: '#0078ad',
     },
     pizzaDescription: {
         fontSize: 14,
@@ -292,90 +273,77 @@ const styles = StyleSheet.create({
         color: 'gray',
         padding: 10,
         paddingTop: 10,
-        marginBottom: 5
+        marginBottom: 5,
     },
     selectionTxt: {
-        color: '#414141',
-        fontSize: 16,
-        // textAlign: 'justify',
-        paddingLeft: 20
+        color: '#000',
+        padding: 5,
+        fontSize: 15,
+        paddingLeft: 20,
     },
     selectionFlatlist: {
         paddingHorizontal: 16,
-        paddingVertical: 16
+        paddingVertical: 16,
     },
     cardContainer: {
         height: 45,
-        width: width * 0.38,
-        marginRight: 0
+        width: width * 0.34,
+        marginRight: 0,
     },
     iconContainer: {
         flex: 1,
         flexDirection: 'column',
-        // justifyContent: 'center'
     },
     icon: {
         padding: 5,
-        width: 30,
-        height: 30
+        width: 25,
+        height: 25,
     },
     sizeTxt: {
         color: '#000',
-        marginLeft: '-15%'
+        marginLeft: '-35%',
     },
     sizeSelectedTxt: {
         color: '#fff',
-        marginLeft: '-15%'
+        marginLeft: '-35%',
     },
     sizeList: {
         flex: 1,
         flexDirection: 'row',
-        // alignSelf: 'center',
         alignItems: 'center',
         justifyContent: 'center',
-        height: 60,
-        width: width * 0.35,
-        // width: 130,
-        borderRadius: 50,
-        borderWidth: 0.7,
-        borderColor: '#000',
-        padding: 8,
-        backgroundColor: '#fff'
-    },
-    sizeSelected: {
-        // alignSelf: 'center',
-        height: 40,
-        width: width * 0.35,
+        width: width * 0.3,
         borderRadius: 50,
         borderWidth: 1,
-        borderColor: 'black',
+        borderColor: '#A3ABB0',
         padding: 8,
-        backgroundColor: '#e42e4ce3'
+    },
+    sizeSelected: {
+        borderRadius: 50,
+        borderWidth: 1,
+        borderColor: '#0E86D4',
+        padding: 8,
+        backgroundColor: '#0E86D4',
     },
     toppingList: {
         flex: 1,
         flexDirection: 'column',
-        // alignSelf: 'center',
         alignItems: 'center',
         justifyContent: 'center',
         height: 60,
-        width: width * 0.30,
-        // width: 130,
-        borderRadius: 10,
-        borderWidth: 0.5,
-        borderColor: '#000',
-        padding: 8,
-        backgroundColor: '#fff'
-    },
-    toppingSelected: {
-        // alignSelf: 'center',
-        height: 40,
-        width: width * 0.30,
+        width: width * 0.20,
         borderRadius: 10,
         borderWidth: 1,
-        borderColor: 'black',
+        borderColor: '#D9E4EC',
         padding: 8,
-        backgroundColor: '#4683b4d3'
+        backgroundColor: '#fff',
+    },
+    toppingSelected: {
+        borderRadius: 10,
+        borderWidth: 1,
+        borderColor: '#D9E4EC',
+        padding: 8,
+        backgroundColor: '#0E86D4',
     },
     topIconContainer: {
         flex: 1,
@@ -386,16 +354,19 @@ const styles = StyleSheet.create({
         width: width * 0.3,
         borderRadius: 10,
         padding: 10,
-        backgroundColor: '#006341'
+        backgroundColor: '#006341',
+    },
+    btnView: {
+        paddingTop: 10,
+        padding: 3,
+        alignItems: 'center',
     },
     btn: {
         padding: 0,
-        width: 140,
-        marginLeft: '10%',
-        marginRight: '10%',
-        borderWidth: 1,
-        borderRadius: 10,
-        backgroundColor: '#049C01'
+        width: 250,
+        borderRadius: 100,
+        // backgroundColor: '#049C01',
+        backgroundColor: '#E42E4B',
     },
     btnTxt: {
         color: '#fff',
@@ -403,9 +374,6 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         lineHeight: 40,
         textAlign: 'center',
-        // backgroundColor: "#000000c0",
-        // backgroundColor: '#006491',
-        // borderRadius: 50,
     },
     btnColor: {
         padding: 10,
@@ -413,5 +381,5 @@ const styles = StyleSheet.create({
         marginHorizontal: 3,
         backgroundColor: '#eee',
         marginTop: 5,
-    }
+    },
 });
