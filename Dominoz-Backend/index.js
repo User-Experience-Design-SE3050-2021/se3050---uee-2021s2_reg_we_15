@@ -3,14 +3,11 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-// Maheshi's API
-
-// Peru's API
-
-// Peru's API
-
-// Dul's API
 const menuAPI = require('./src/api/menu.api');
+const cartAPI = require('./src/api/cart.api');
+const userAPI = require('./src/api/user.api');
+const paymentAPI = require('./src/api/payment.api');
+const deliveryAPI = require('./src/api/delivery.api');
 
 dotenv.config();
 const app = express();
@@ -40,6 +37,10 @@ app.route('/').get((req, res) => {
 });
 
 app.use('/menu', menuAPI());
+app.use('/cart', cartAPI());
+app.use('/user', userAPI());
+app.use('/payment', paymentAPI());
+app.use('/delivery', deliveryAPI());
 
 app.listen(PORT, () => {
     console.log(`Server is up and running on PORT ${PORT}`);
