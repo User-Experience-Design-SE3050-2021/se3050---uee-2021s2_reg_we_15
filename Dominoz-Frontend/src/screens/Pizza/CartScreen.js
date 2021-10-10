@@ -36,19 +36,49 @@ export default class CartScreen extends React.Component {
                     price: 'Rs.1500',
                 },
             ],
+            cart: [],
+            total: 0,
         };
         this.getCart = this.getCart.bind(this);
+        this.getTotal = this.getTotal.bind(this);
+        this.deleteItem = this.deleteItem.bind(this);
     }
 
-    // componentDidMount = () => {
-    //     this.getMenu();
-    // }
+    componentDidMount = () => {
+        this.getCart();
+        this.getTotal();
+    }
 
     getCart = () => {
-        var url = 'http://192.168.8.105:8080/menu/';
+        var url = 'http://192.168.8.105:8080/cart/';
         axios.get(url)
             .then(response => {
-                this.setState({ orders: response.data.data });
+                this.setState({ cart: response.data.data });
+            })
+            .catch(error => {
+                console.log(error);
+                alert(error.message);
+            });
+    }
+
+    getTotal = () => {
+        var url = 'http://192.168.8.105:8080/cart/getTotal';
+        axios.get(url)
+            .then(response => {
+                this.setState({ total: response.data.totalAmount });
+            })
+            .catch(error => {
+                console.log(error);
+                alert(error.message);
+            });
+    }
+
+    deleteItem = (item) => {
+        var url = `http://192.168.8.105:8080/cart/delete/${item._id}`;
+        axios.delete(url)
+            .then(response => {
+                console.log(response.data);
+                alert(response.data);
             })
             .catch(error => {
                 console.log(error);
@@ -62,12 +92,13 @@ export default class CartScreen extends React.Component {
     }
 
     render() {
+        console.log("cart", this.state.cart)
         return (
             <View style={styles.container}>
                 <ScrollView>
                     <FlatList
                         style={styles.flatList}
-                        data={this.state.data}
+                        data={this.state.cart}
                         keyExtractor={(item) => { return item.id; }}
                         renderItem={({ item }) => {
                             return (
@@ -79,12 +110,18 @@ export default class CartScreen extends React.Component {
                                     <View style={styles.cardContent}>
                                         {/* Column for image */}
                                         <View style={styles.imageContainer}>
-                                            <Image style={styles.image} source={{ uri: item.icon }} />
+                                            <Image style={styles.image} source={{ uri: item.pizzaImage }} />
                                         </View>
                                         {/* Column for text */}
                                         <View style={[styles.imageContainer, { marginLeft: 10 }]}>
-                                            <Text style={styles.name}>{item.name}</Text>
-                                            <Text style={styles.price}>{item.price}</Text>
+                                            <Text style={styles.name}>{item.pizzaName}</Text>
+                                            <Text style={styles.price}>{item.pizzaPrice}</Text>
+                                            <View style={{ flex: 1, flexDirection: 'row', margin: 5 }}>
+                                                <Text>Ingredients: </Text>
+                                                {item.pizzaToppings.map((item) => (
+                                                    <Text>{item},</Text>
+                                                ))}
+                                            </View>
                                             <TouchableOpacity style={styles.incrementBtn}
                                                 onPress={() => this.props.navigation.navigate('CartScreen')}>
                                                 <Text style={styles.incrementBtnTxt}>-   1   +</Text>
@@ -92,9 +129,9 @@ export default class CartScreen extends React.Component {
                                             <View style={styles.inlineView} />
                                         </View>
                                         {/* Column for bin */}
-                                        <View style={[styles.imageContainer, { marginLeft: -20, alignSelf: 'center' }]}>
+                                        <View style={[styles.imageContainer, { marginLeft: -40, }]}>
                                             <TouchableOpacity style={styles.deleteBtn}
-                                                onPress={() => this.props.navigation.navigate('CartScreen')}>
+                                                onPress={() => { this.deleteItem(item) }}>
                                                 <Image
                                                     style={styles.binImage}
                                                     source={require('../../../images/trash.png')}
@@ -115,9 +152,9 @@ export default class CartScreen extends React.Component {
                         <Text style={styles.totalPrice}>Grand Total :</Text>
                     </View>
                     <View style={[styles.priceLabel, { alignItems: 'flex-end' }]}>
-                        <Text style={{ color: 'gray', padding: 5 }}>Rs. 3138.00</Text>
+                        <Text style={{ color: 'gray', padding: 5 }}>{this.state.total}</Text>
                         <Text style={[styles.priceLabelText, { borderBottomWidth: 1, width: 145, textAlign: 'right' }]}>Rs. 0.00</Text>
-                        <Text style={styles.totalPrice}>Rs. 3138.00</Text>
+                        <Text style={styles.totalPrice}>{this.state.total}</Text>
                     </View>
                 </TouchableOpacity>
                 {/* Checkout button */}
@@ -161,7 +198,7 @@ const styles = StyleSheet.create({
     },
     image: {
         width: 100,
-        height: 90,
+        height: 120,
         resizeMode: 'contain',
         borderRadius: 10,
     },
@@ -196,8 +233,11 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         margin: 5,
         marginTop: '10%',
+        borderWidth: 1.5,
+        borderColor: '#E10032',
         borderRadius: 5,
-        backgroundColor: '#E10032',
+        // backgroundColor: '#E10032',
+        backgroundColor: '#fff',
     },
     incrementBtnTxt: {
         color: '#fff',

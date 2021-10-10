@@ -1,14 +1,15 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
+import axios from 'axios';
 import { StyleSheet, Text, View, TouchableOpacity, Image, Alert, ScrollView, FlatList, Dimensions } from 'react-native';
-import pizza_s from '../../../images/pizza_s.png';
-import pizza_m from '../../../images/pizza_m.png';
-import pizza_l from '../../../images/pizza_l.png';
-import cheese from '../../../images/cheese.png';
-import onion from '../../../images/onion.png';
-import tomato from '../../../images/tomato.png';
-import pineapple from '../../../images/pineapple.png';
-import capsicum from '../../../images/capsicum.png';
+import pizza_s from '../../../images/pizzaSize/pizza_s.png';
+import pizza_m from '../../../images/pizzaSize/pizza_m.png';
+import pizza_l from '../../../images/pizzaSize/pizza_l.png';
+import cheese from '../../../images/toppings/cheese.png';
+import onion from '../../../images/toppings/onion.png';
+import tomato from '../../../images/toppings/tomato.png';
+import pineapple from '../../../images/toppings/pineapple.png';
+import capsicum from '../../../images/toppings/capsicum.png';
 
 const { width, height } = Dimensions.get('window');
 
@@ -58,7 +59,6 @@ const toppings = [
     },
 ];
 
-
 export default class PizzaDetailScreen extends React.Component {
     static navigationOptions = {
         title: 'Details',
@@ -72,7 +72,9 @@ export default class PizzaDetailScreen extends React.Component {
             selectedSize: 0,
             toppingsData: toppings,
             selectedToppings: [],
+            itemDetails:{}
         };
+        this.addToCart = this.addToCart.bind(this);
     }
 
     componentDidMount = () => {
@@ -81,25 +83,6 @@ export default class PizzaDetailScreen extends React.Component {
         this.setState({
             data: param,
         });
-
-    }
-
-    cardClickEventListener = (item) => {
-        Alert.alert(item.name);
-    }
-
-    tagClickEventListener = (tagName) => {
-        Alert.alert(tagName);
-    }
-
-    renderTags = (item) => {
-        return item.tags.map((tag, key) => {
-            return (
-                <TouchableOpacity key={key} style={styles.btnColor} onPress={() => { this.tagClickEventListener(tag) }}>
-                    <Text>{tag}</Text>
-                </TouchableOpacity>
-            );
-        })
     }
 
     onSizeSelect = (item) => {
@@ -135,6 +118,43 @@ export default class PizzaDetailScreen extends React.Component {
         });
     }
 
+    addToCart() {
+        var url = 'http://192.168.8.105:8080/cart/createOrder';
+        var data = {
+            pizzaImage: this.state.data.pizzaImage,
+            pizzaName: this.state.data.pizzaName,
+            pizzaPrice: this.state.data.pizzaPrice,
+            pizzaDescription: this.state.data.pizzaDescription,
+            pizzaSize: this.state.selectedSize,
+            pizzaToppings: this.state.selectedToppings,
+        };
+        axios.post(url, data)
+            .then(response => {
+                this.setState({
+                    itemDetails: response.data,
+                });
+                Alert.alert(
+                    'Success ✔',
+                    'Your order has been placed successfully!!',
+                    [
+                        { text: 'OK', onPress: () => this.props.navigation.navigate('') },
+                    ],
+                    { cancelable: false },
+                );
+            })
+            .catch(error => {
+                console.log(error);
+                Alert.alert(
+                    'Error ❌',
+                    'Your order has been placed unsuccessfully!!',
+                    [
+                        { text: 'Check Again?', onPress: () => this.props.navigation.navigate('') },
+                    ],
+                    { cancelable: false },
+                );
+            });
+    }
+
     render() {
 
         console.log('item details', this.state.data);
@@ -143,23 +163,22 @@ export default class PizzaDetailScreen extends React.Component {
             <View style={styles.container}>
                 <ScrollView>
                     {/* Image of Pizza */}
-                    <Image style={styles.pizzaImage} source={{ uri: this.state.data.icon }} />
+                    <Image style={styles.pizzaImage} source={{ uri: this.state.data.pizzaImage }} />
                     {/* Pizza Details Card */}
                     <TouchableOpacity
                         style={styles.pizzaCard}
                         activeOpacity={1}>
                         {/* Row for pizza details */}
                         <View style={styles.cardRow}>
-                            <Text style={styles.pizzaName}>{this.state.data.name}</Text>
+                            <Text style={styles.pizzaName}>{this.state.data.pizzaName}</Text>
                         </View>
                         <View style={styles.cardRow}>
-                            <Text style={styles.pizzaPrize}>{this.state.data.price}</Text>
+                            <Text style={styles.pizzaPrize}>{this.state.data.pizzaPrice}</Text>
                         </View>
                         {/* Row for Description */}
                         <Text style={styles.selectionTxt}>Description</Text>
                         <View style={styles.cardRow}>
-                            <Text style={styles.pizzaDescription}>
-                                Crispy chicken bacon, jalapeno and pineapple titbits on a mozzarella crust</Text>
+                            <Text style={styles.pizzaDescription}>{this.state.data.pizzaDescription}</Text>
                         </View>
                         {/* Size Row */}
                         <Text style={styles.selectionTxt}>Size</Text>
@@ -213,7 +232,8 @@ export default class PizzaDetailScreen extends React.Component {
                 {/* Cart button */}
                 <View style={styles.btnView}>
                     <TouchableOpacity
-                        onPress={() => this.props.navigation.navigate('CartScreen')}
+                        onPress={this.addToCart}
+                        // onPress={() => this.props.navigation.navigate('CartScreen')}
                         style={styles.btn}>
                         <Text style={styles.btnTxt}>Add To Cart</Text>
                     </TouchableOpacity>

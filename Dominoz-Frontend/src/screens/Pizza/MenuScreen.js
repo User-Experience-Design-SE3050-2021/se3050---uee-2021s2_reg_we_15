@@ -89,7 +89,7 @@ export default class MenuScreen extends React.Component {
 	}
 
 	componentDidMount = () => {
-		// this.getMenu();
+		this.getMenu();
 	}
 
 	getMenu = () => {
@@ -110,6 +110,7 @@ export default class MenuScreen extends React.Component {
 	}
 
 	render() {
+		console.log("sdn", this.state.pizzaDetails);
 		return (
 			<View style={styles.container}>
 				<ScrollView>
@@ -134,7 +135,7 @@ export default class MenuScreen extends React.Component {
 					<FlatList
 						style={styles.notificationList}
 						// TODO: should change
-						data={this.state.data}
+						data={this.state.pizzaDetails}
 						keyExtractor={(item) => {
 							return item.id;
 						}}
@@ -147,12 +148,12 @@ export default class MenuScreen extends React.Component {
 									<View style={styles.cardContent}>
 										{/* Column for image */}
 										<View style={styles.imageContainer}>
-											<Image style={styles.image} source={{ uri: item.icon }} />
+											<Image style={styles.image} source={{ uri: item.pizzaImage }} />
 										</View>
 										{/* Column for text */}
 										<View style={styles.imageContainer}>
-											<Text style={styles.name}>{item.name}</Text>
-											<Text style={styles.price}>{item.price}</Text>
+											<Text style={styles.name}>{item.pizzaName}</Text>
+											<Text style={styles.price}>{item.pizzaPrice}</Text>
 											<TouchableOpacity style={styles.cartBtn}
 												onPress={() => this.props.navigation.navigate('CartScreen')}>
 												<Text style={styles.btnText}>Add To Cart</Text>
