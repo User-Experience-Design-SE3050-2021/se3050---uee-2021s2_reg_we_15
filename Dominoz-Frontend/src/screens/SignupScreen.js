@@ -135,23 +135,23 @@ const styles = StyleSheet.create({
   },
 
   submitBtn: {
-    width: "35%",
+    width: "70%",
     borderRadius: 25,
-    height: 35,
+    height: 40,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#049C01",
+    backgroundColor: "#DADADA",
     marginBottom : 15,
   },
   submitTxt:{
-    color:"#f6f6f6"
+    color:"#161CA0"
     
   },
 
   mobileBtn: {
     width: "70%",
     borderRadius: 25,
-    height: 45,
+    height: 40,
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "#DADADA",
@@ -167,7 +167,7 @@ const styles = StyleSheet.create({
     marginTop : 30,
   },
   mobileTxt:{
-    color:"#0E0D0D"
+    color:"#161CA0"
     
   },
   Fbtxt:{
@@ -177,7 +177,7 @@ const styles = StyleSheet.create({
   },
 
   loginBtn: {
-    width: "60%",
+    width: "70%",
     borderRadius: 25,
     height: 40,
     alignItems: "center",
