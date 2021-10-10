@@ -1,7 +1,8 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
-import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
+import {View, Text, TouchableOpacity, StyleSheet, Image} from 'react-native';
+import {createAppContainer} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation-stack';
+import SplashScreen from './src/screens/SplashScreen';
 import MainScreen from './src/screens/MainScreen';
 import LoginScreen from './src/screens/LoginScreen';
 import PaymentScreen from './src/screens/Payment';
@@ -29,7 +30,7 @@ class HomeScreen extends React.Component {
   };
   render() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
         <Text>Home Screen</Text>
       </View>
     );
@@ -38,31 +39,24 @@ class HomeScreen extends React.Component {
 
 const AppNavigator = createStackNavigator(
   {
+    SplashScreen: { screen: SplashScreen },
     MainScreen: {screen: MainScreen},
-    LoginScreen: {screen: LoginScreen},
-    PaymentScreen: {screen: PaymentScreen},
-    AddressScreen: {screen: AddressScreen},
-    MenuScreen: {screen: MenuScreen},
-    CartScreen: {screen: CartScreen},
-    DeliveryScreen: {screen: DeliveryScreen},
-    MyAddressScreen:{screen: MyAddressScreen},
-    OffersScreen:{screen:OffersScreen},
-    
-    MainScreen: { screen: MainScreen },
     // Maheshi
-    LoginScreen: { screen: LoginScreen },
-    SignupScreen: { screen: SignupScreen },
+    LoginScreen: {screen: LoginScreen},
+    SignupScreen: {screen: SignupScreen},
     // Perusha
-    DeliveryScreen: { screen: DeliveryScreen },
-    PaymentScreen: { screen: PaymentScreen },
-    CheckOutScreen: { screen: CheckOutScreen },
-    ConfirmationScreen: { screen: ConfirmationScreen },
+    DeliveryScreen: {screen: DeliveryScreen},
+    PaymentScreen: {screen: PaymentScreen},
+    CheckOutScreen: {screen: CheckOutScreen},
+    ConfirmationScreen: {screen: ConfirmationScreen},
     // Achini
-    AddressScreen: { screen: AddressScreen },
+    AddressScreen: {screen: AddressScreen},
+    OffersScreen: {screen: OffersScreen},
+    MyAddressScreen: {screen: MyAddressScreen},
     // Dulya
-    MenuScreen: { screen: MenuScreen },
-    PizzaDetailScreen: { screen: PizzaDetailScreen },
-    CartScreen: { screen: CartScreen },
+    MenuScreen: {screen: MenuScreen},
+    PizzaDetailScreen: {screen: PizzaDetailScreen},
+    CartScreen: {screen: CartScreen},
   },
   {
     defaultNavigationOptions: {
@@ -72,9 +66,9 @@ const AppNavigator = createStackNavigator(
       },
       headerRight: (
         <Image
-          style={{ width: 30, height: 30, margin: 20 }}
-          source={require("./images/cart.png")} />
-
+          style={{width: 30, height: 30, margin: 20}}
+          source={require('./images/cart.png')}
+        />
       ),
     },
     // navigationOptions: {

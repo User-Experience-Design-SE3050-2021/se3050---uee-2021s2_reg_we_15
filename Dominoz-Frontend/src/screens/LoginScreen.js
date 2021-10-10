@@ -10,7 +10,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-export default class SplashScreen extends React.Component {
+export default class LoginScreen extends React.Component {
     static navigationOptions = {
         title: 'Log In'
     }
