@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
+import axios from 'axios';
 import {
     StyleSheet,
     Text,
@@ -16,6 +17,44 @@ export default class AddressScreen extends React.Component {
         title: 'Address Details'
     }
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            data: {},
+            Address: '',
+            number: '',
+            city: '',
+            streetName: '',
+            itemDetails: {}
+        };
+        this.onChangeAddress = this.onChangeAddress.bind(this);
+        this.addAddress = this.addAddress.bind(this);
+    }
+
+    onChangeAddress = (e) => {
+        this.setState({ Address: e });
+    }
+
+
+    addAddress() {
+        var url = 'http://192.168.8.105:8080/address/createAddress';
+        var data = {
+            Address: this.state.data.pizzaImage,
+            number: this.state.data.pizzaName,
+            city: this.state.data.pizzaPrice,
+            streetName: this.state.data.pizzaDescription,
+        };
+        axios.post(url, data)
+            .then(response => {
+                this.setState({
+                    itemDetails: response.data,
+                });
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }
+
     render() {
         return (
             <View style={styles.container}>
@@ -29,7 +68,9 @@ export default class AddressScreen extends React.Component {
                     <TextInput
                         style={styles.TextInput}
                         placeholder="Kandy Road, Yakkala"
+                        value={this.state.Address}
                         placeholderTextColor="#003f5c"
+                        onChangeText={this.onChangeAddress}
                     />
                 </View>
                 <Text style={styles.loginText}>House No / Flat No / Floor</Text>

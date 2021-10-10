@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
+import axios from 'axios';
 import {
     StyleSheet,
     Text,
@@ -13,6 +14,35 @@ import {
 export default class PaymentScreen extends React.Component {
     static navigationOptions = {
         title: 'Payment'
+    }
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            data: {},
+            itemDetails: {}
+        };
+        this.addPayment = this.addPayment.bind(this);
+    }
+
+    addPayment() {
+        var url = 'http://192.168.8.105:8080/payment/createPayment';
+        var data = {
+            name: this.state.data.pizzaImage,
+            expireMonth: this.state.data.pizzaName,
+            expireYear: this.state.data.pizzaPrice,
+            cvc: this.state.data.pizzaDescription,
+            cardNumber: this.state.selectedSize,
+        };
+        axios.post(url, data)
+            .then(response => {
+                this.setState({
+                    itemDetails: response.data,
+                });
+            })
+            .catch(error => {
+                console.log(error);
+            });
     }
 
     render() {
@@ -54,7 +84,7 @@ export default class PaymentScreen extends React.Component {
                     />
                 </View>
 
-                <TouchableOpacity style={styles.loginBtn}>
+                <TouchableOpacity style={styles.loginBtn} onPress={() => this.props.navigation.navigate('ConfirmationScreen')}>
                     <Text style={styles.pay}>Pay Now</Text>
                 </TouchableOpacity>
             </View>
@@ -107,7 +137,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         marginTop: 120,
         backgroundColor: "#E42E4B",
-        marginLeft:35
+        marginLeft: 35
     },
     pay: {
         color: "#fff"

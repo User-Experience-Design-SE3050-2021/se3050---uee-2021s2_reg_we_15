@@ -83,7 +83,7 @@ export default class CheckOutScreen extends React.Component {
                         </View>
                     </View>
                     <TouchableOpacity style={styles.loginBtn}
-                        onPress={() => this.props.navigation.navigate('ConfirmationScreen')}>
+                        onPress={() => this.props.navigation.navigate('PaymentScreen')}>
                         <Text style={styles.pay}>Continue to CheckOut</Text>
                     </TouchableOpacity>
 

@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
+import axios from 'axios';
 import {
     StyleSheet,
     Text,
@@ -14,6 +15,38 @@ import {
 export default class DeliveryScreen extends React.Component {
     static navigationOptions = {
         title: 'Delivery'
+    }
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            data: {},
+            itemDetails: {}
+        };
+        this.addDelivery = this.addDelivery.bind(this);
+    }
+
+    addDelivery() {
+        var url = 'http://192.168.8.105:8080/delivery/createDelivery';
+        var data = {
+            Address: this.state.data.pizzaImage,
+            number: this.state.data.pizzaName,
+            city: this.state.data.pizzaPrice,
+            streetName: this.state.data.pizzaDescription,
+            mobileNo: this.state.selectedSize,
+            fName: this.state.selectedSize,
+            lName: this.state.selectedSize,
+            email: this.state.selectedSize,
+        };
+        axios.post(url, data)
+            .then(response => {
+                this.setState({
+                    itemDetails: response.data,
+                });
+            })
+            .catch(error => {
+                console.log(error);
+            });
     }
 
     render() {
