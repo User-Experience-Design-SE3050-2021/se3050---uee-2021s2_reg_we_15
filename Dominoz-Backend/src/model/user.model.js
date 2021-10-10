@@ -24,7 +24,6 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    // role: [{ type: mongoose.Schema.Types.ObjectId, required: false, ref: 'rooms' }]
 });
 
 const User = mongoose.model('users', UserSchema);

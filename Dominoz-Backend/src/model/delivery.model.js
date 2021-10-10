@@ -1,31 +1,38 @@
 const mongoose = require('mongoose');
 
 const deliverySchema = new mongoose.Schema({
-    deliveryId: {
+    Address: {
         type: String,
         required: true
     },
-    orderId: {
+    number: {
         type: String,
         required: true
     },
-    deliveryPerson: {
+    city: {
         type: String,
         required: true
     },
-    deliveryPhone: {
+    streetName: {
         type: String,
         required: true
     },
-    status: {
+    mobileNo: {
         type: Boolean,
         required: true
     },
-    userId: {
+    fName: {
         type: String,
         required: true
-    }
-    // userId: [{ type: mongoose.Schema.Types.ObjectId, required: false, ref: 'users' }]
+    },
+    lName: {
+        type: String,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true
+    },
 });
 
 const Delivery = mongoose.model('payments', deliverySchema);

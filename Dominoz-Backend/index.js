@@ -8,6 +8,7 @@ const cartAPI = require('./src/api/cart.api');
 const userAPI = require('./src/api/user.api');
 const paymentAPI = require('./src/api/payment.api');
 const deliveryAPI = require('./src/api/delivery.api');
+const addressAPI = require('./src/api/address.api');
 
 dotenv.config();
 const app = express();
@@ -41,6 +42,7 @@ app.use('/cart', cartAPI());
 app.use('/user', userAPI());
 app.use('/payment', paymentAPI());
 app.use('/delivery', deliveryAPI());
+app.use('/address', addressAPI());
 
 app.listen(PORT, () => {
     console.log(`Server is up and running on PORT ${PORT}`);

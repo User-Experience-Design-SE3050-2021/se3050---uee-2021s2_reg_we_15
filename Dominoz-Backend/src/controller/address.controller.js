@@ -1,9 +1,9 @@
-const Payment = require('../model/delivery.model');
+const Address = require('../model/address.model');
 
-const createPayment = async (req, res) => {
+const createAddress = async (req, res) => {
     if (req.body) {
-        const payment = new Payment(req.body);
-        await payment.save()
+        const delivery = new Address(req.body);
+        await delivery.save()
             .then(data => {
                 res.status(200).send({ data: data });
             })
@@ -13,8 +13,8 @@ const createPayment = async (req, res) => {
     }
 }
 
-const getAllPayments = async (req, res) => {
-    await Payment.find()
+const getAllAddresses = async (req, res) => {
+    await Address.find()
         .then(data => {
             res.status(200).send({ data: data });
         })
@@ -24,6 +24,6 @@ const getAllPayments = async (req, res) => {
 }
 
 module.exports = {
-    createPayment,
-    getAllPayments,
+    createAddress,
+    getAllAddresses,
 };

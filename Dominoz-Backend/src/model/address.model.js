@@ -1,27 +1,23 @@
 const mongoose = require('mongoose');
 
-const paymentSchema = new mongoose.Schema({
-    name: {
+const AddressSchema = new mongoose.Schema({
+    Address: {
         type: String,
         required: true
     },
-    expireMonth: {
+    number: {
         type: String,
         required: true
     },
-    expireYear: {
+    city: {
         type: String,
         required: true
     },
-    cvc: {
-        type: String,
-        required: true
-    },
-    cardNumber: {
+    streetName: {
         type: String,
         required: true
     },
 });
 
-const Payment = mongoose.model('payments', paymentSchema);
-module.exports = Payment;
+const Address = mongoose.model('addresses', AddressSchema);
+module.exports = Address;
