@@ -35,5 +35,5 @@ const deliverySchema = new mongoose.Schema({
     },
 });
 
-const Delivery = mongoose.model('payments', deliverySchema);
+const Delivery = mongoose.model('deliveries', deliverySchema);
 module.exports = Delivery;
