@@ -96,7 +96,6 @@ export default class AddressScreen extends React.Component {
                                 onChangeText={this.onChangeNumber}
                         // placeholder="Card Number*"
                         placeholderTextColor="#003f5c"
-                        secureTextEntry={true}
                     />
                <View style={{flex: 1, flexDirection: 'row'}}>
                         <View style={{flex: 1, flexDirection: 'column', width: 10,marginTop:10}}>
@@ -108,7 +107,6 @@ export default class AddressScreen extends React.Component {
                                             onChangeText={this.onChangeCity}
                                         // placeholder="CVC*"
                                         placeholderTextColor="#003f5c"
-                                        secureTextEntry={true}
                                     />
                                 </View>
                         </View>
@@ -121,7 +119,6 @@ export default class AddressScreen extends React.Component {
                                             onChangeText={this.onChangeStreetName}
                                         // placeholder="Expire Date"
                                         placeholderTextColor="#003f5c"
-                                        secureTextEntry={true}
                                     />
                                 </View>
                         </View>
@@ -181,6 +178,7 @@ const styles = StyleSheet.create({
         marginBottom: 30,
         color: "#fff",
         textAlign: 'center',
+        fontSize: 17
     },
     loginBtn: {
         width: 240,
@@ -190,7 +188,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         marginTop: 80,
         backgroundColor: "#E42E4B",
-        marginLeft:80,
+        marginLeft:50
     },
     pay: {
         color: "#fff",

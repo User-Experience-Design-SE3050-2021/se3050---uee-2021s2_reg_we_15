@@ -41,7 +41,7 @@ export default class PaymentScreen extends React.Component {
                         style={styles.TextInput}
                         // placeholder="Card Number*"
                         placeholderTextColor="#003f5c"
-                        secureTextEntry={true}
+                         
                     />
                 </View>
                 <Text style={styles.loginText}>CVC*</Text>
@@ -50,7 +50,7 @@ export default class PaymentScreen extends React.Component {
                         style={styles.TextInput}
                         // placeholder="CVC*"
                         placeholderTextColor="#003f5c"
-                        secureTextEntry={true}
+                         
                     />
                 </View>
                 <Text style={styles.loginText}>Expire Date</Text>
@@ -59,7 +59,7 @@ export default class PaymentScreen extends React.Component {
                         style={styles.TextInput}
                         // placeholder="Expire Date"
                         placeholderTextColor="#003f5c"
-                        secureTextEntry={true}
+                         
                     />
                 </View>
 

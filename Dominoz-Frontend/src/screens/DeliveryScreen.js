@@ -125,7 +125,7 @@ onChangeStreetName = (e) => {
                                 onChangeText={this.onChangeNumber}
                             // placeholder="Card Number*"
                             placeholderTextColor="#003f5c"
-                            secureTextEntry={true}
+                             
                         />
                     </View>
                     <View style={{flex: 1, flexDirection: 'row'}}>
@@ -138,7 +138,7 @@ onChangeStreetName = (e) => {
                                         onChangeText={this.onChangeCity}
                                         // placeholder="CVC*"
                                         placeholderTextColor="#003f5c"
-                                        secureTextEntry={true}
+                                         
                                     />
                                 </View>
                         </View>
@@ -151,7 +151,7 @@ onChangeStreetName = (e) => {
                                         onChangeText={this.onChangeStreetName}
                                         // placeholder="Expire Date"
                                         placeholderTextColor="#003f5c"
-                                        secureTextEntry={true}
+                                         
                                     />
                                 </View>
                         </View>
@@ -181,7 +181,7 @@ onChangeStreetName = (e) => {
                                         onChangeText={this.onChangeFName}
                                         // placeholder="CVC*"
                                         placeholderTextColor="#003f5c"
-                                        secureTextEntry={true}
+                                         
                                     />
                                 </View>
                             </View>
@@ -194,7 +194,7 @@ onChangeStreetName = (e) => {
                                         onChangeText={this.onChangeLName}
                                         // placeholder="Expire Date"
                                         placeholderTextColor="#003f5c"
-                                        secureTextEntry={true}
+                                         
                                     />
                                 </View>
                             </View>
@@ -207,7 +207,7 @@ onChangeStreetName = (e) => {
                                 onChangeText={this.onChangeEmail}
                             // placeholder="Expire Date"
                             placeholderTextColor="#003f5c"
-                            secureTextEntry={true}
+                             
                             />
                         </View>
 
