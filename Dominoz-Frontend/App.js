@@ -15,6 +15,7 @@ import OffersScreen from './src/screens/OffersScreen';
 import CheckOutScreen from './src/screens/CheckOutScreen';
 import ConfirmationScreen from './src/screens/ConfirmationScreen';
 import SignupScreen from './src/screens/SignupScreen';
+import Profilescreen from './src/screens/ProfileScreen';
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -29,9 +30,10 @@ class HomeScreen extends React.Component {
   };
   render() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Home Screen</Text>
-      </View>
+
+      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center' , backgroundColor : '#F1F5FF'}}>
+      <Text>Home Screen</Text>
+    </View>
     );
   }
 }
@@ -63,6 +65,7 @@ const AppNavigator = createStackNavigator(
     MenuScreen: { screen: MenuScreen },
     PizzaDetailScreen: { screen: PizzaDetailScreen },
     CartScreen: { screen: CartScreen },
+    ProfileScreen : {screen : Profilescreen}
   },
   {
     defaultNavigationOptions: {
