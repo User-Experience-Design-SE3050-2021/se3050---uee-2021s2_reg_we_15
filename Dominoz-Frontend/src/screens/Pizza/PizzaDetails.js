@@ -173,7 +173,7 @@ export default class PizzaDetailScreen extends React.Component {
                             <Text style={styles.pizzaName}>{this.state.data.pizzaName}</Text>
                         </View>
                         <View style={styles.cardRow}>
-                            <Text style={styles.pizzaPrize}>{this.state.data.pizzaPrice}</Text>
+                            <Text style={styles.pizzaPrize}>Rs. {this.state.data.pizzaPrice}/=</Text>
                         </View>
                         {/* Row for Description */}
                         <Text style={styles.selectionTxt}>Description</Text>

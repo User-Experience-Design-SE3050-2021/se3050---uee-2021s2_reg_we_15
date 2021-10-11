@@ -115,7 +115,7 @@ export default class CartScreen extends React.Component {
                                         {/* Column for text */}
                                         <View style={[styles.imageContainer, { marginLeft: 10 }]}>
                                             <Text style={styles.name}>{item.pizzaName}</Text>
-                                            <Text style={styles.price}>{item.pizzaPrice}</Text>
+                                            <Text style={styles.price}>Rs.{item.pizzaPrice}/=</Text>
                                             <View style={{ flex: 1, flexDirection: 'row', margin: 5 }}>
                                                 <Text>Ingredients: </Text>
                                                 {item.pizzaToppings.map((item) => (
@@ -132,10 +132,11 @@ export default class CartScreen extends React.Component {
                                         <View style={[styles.imageContainer, { marginLeft: -40, }]}>
                                             <TouchableOpacity style={styles.deleteBtn}
                                                 onPress={() => { this.deleteItem(item) }}>
-                                                <Image
+                                                {/* <Image
                                                     style={styles.binImage}
                                                     source={require('../../../images/trash.png')}
-                                                />
+                                                /> */}
+                                                <Image style={styles.binImage} source={{ uri: 'https://cdn-icons-png.flaticon.com/128/216/216658.png' }} />
                                             </TouchableOpacity>
                                         </View>
                                     </View>
@@ -152,9 +153,9 @@ export default class CartScreen extends React.Component {
                         <Text style={styles.totalPrice}>Grand Total :</Text>
                     </View>
                     <View style={[styles.priceLabel, { alignItems: 'flex-end' }]}>
-                        <Text style={{ color: 'gray', padding: 5 }}>{this.state.total}</Text>
+                        <Text style={{ color: 'gray', padding: 5 }}>Rs. {this.state.total}.00</Text>
                         <Text style={[styles.priceLabelText, { borderBottomWidth: 1, width: 145, textAlign: 'right' }]}>Rs. 0.00</Text>
-                        <Text style={styles.totalPrice}>{this.state.total}</Text>
+                        <Text style={styles.totalPrice}>Rs. {this.state.total}.00</Text>
                     </View>
                 </TouchableOpacity>
                 {/* Checkout button */}

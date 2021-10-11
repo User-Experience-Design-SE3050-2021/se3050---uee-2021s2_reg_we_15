@@ -153,7 +153,7 @@ export default class MenuScreen extends React.Component {
 										{/* Column for text */}
 										<View style={styles.imageContainer}>
 											<Text style={styles.name}>{item.pizzaName}</Text>
-											<Text style={styles.price}>{item.pizzaPrice}</Text>
+											<Text style={styles.price}>Rs. {item.pizzaPrice}/=</Text>
 											<TouchableOpacity style={styles.cartBtn}
 												onPress={() => this.props.navigation.navigate('CartScreen')}>
 												<Text style={styles.btnText}>Add To Cart</Text>
