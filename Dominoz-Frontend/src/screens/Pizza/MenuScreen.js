@@ -93,7 +93,7 @@ export default class MenuScreen extends React.Component {
 	}
 
 	getMenu = () => {
-		var url = 'http://192.168.8.105:8080/menu/';
+		var url = 'http://192.168.1.102:8080/menu/';
 		axios.get(url)
 			.then(response => {
 				this.setState({ pizzaDetails: response.data.data });

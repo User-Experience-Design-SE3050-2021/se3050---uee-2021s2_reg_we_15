@@ -50,7 +50,7 @@ export default class CartScreen extends React.Component {
     }
 
     getCart = () => {
-        var url = 'http://192.168.8.105:8080/cart/';
+        var url = 'http://192.168.1.102:8080/cart/';
         axios.get(url)
             .then(response => {
                 this.setState({ cart: response.data.data });
@@ -62,7 +62,7 @@ export default class CartScreen extends React.Component {
     }
 
     getTotal = () => {
-        var url = 'http://192.168.8.105:8080/cart/getTotal';
+        var url = 'http://192.168.1.102:8080/cart/getTotal';
         axios.get(url)
             .then(response => {
                 this.setState({ total: response.data.totalAmount });
@@ -74,7 +74,7 @@ export default class CartScreen extends React.Component {
     }
 
     deleteItem = (item) => {
-        var url = `http://192.168.8.105:8080/cart/delete/${item._id}`;
+        var url = `http://192.168.1.102:8080/cart/delete/${item._id}`;
         axios.delete(url)
             .then(response => {
                 console.log(response.data);

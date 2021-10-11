@@ -76,7 +76,7 @@ onChangeStreetName = (e) => {
 
     addDelivery() {
         this.props.navigation.navigate('CheckOutScreen');
-        // var url = 'http://192.168.8.105:8080/delivery/createDelivery';
+        // var url = 'http://192.168.1.102:8080/delivery/createDelivery';
         // var data = {
         //     Address: this.state.Address,
         //     number: this.state.number,

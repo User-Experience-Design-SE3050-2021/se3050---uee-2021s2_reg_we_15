@@ -119,7 +119,7 @@ export default class PizzaDetailScreen extends React.Component {
     }
 
     addToCart() {
-        var url = 'http://192.168.8.105:8080/cart/createOrder';
+        var url = 'http://192.168.1.102:8080/cart/createOrder';
         var data = {
             pizzaImage: this.state.data.pizzaImage,
             pizzaName: this.state.data.pizzaName,

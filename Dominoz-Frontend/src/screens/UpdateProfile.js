@@ -25,35 +25,46 @@ export default class UpdateProfile extends Component {
         <View style={styles.container2}>
           
         <View style={styles.container4}>
+          
         <View style={styles.containerx}>
           <View style = {{flex : 1, flexDirection : 'column'}}>
           <Image style={styles.image}  source={require('../../images/profile.png')}></Image>
+          <Text style={styles.Name}> update Image</Text>
           </View>
           </View>
           
           </View>
         </View>
+        <Text style={styles.name1}> Full Name</Text>
         <View style={styles.inputView}>
+          
               <TextInput
                 style={styles.TextInput}
-                placeholder="Email Address"
+                placeholder=""
                 placeholderTextColor="#003f5c"
                 // onChangeText={(email) => setEmail(email)}
               />
             </View>
-
+            <Text style={styles.name1}> Email</Text>
             <View style={styles.inputView}>
               <TextInput
                 style={styles.TextInput}
-                placeholder="Password"
                 placeholderTextColor="#003f5c"
-                secureTextEntry={true}
                 // onChangeText={(password) => setPassword(password)}
               />
             </View>
-        <TouchableOpacity style={styles.mobileBtn}>
-              <Text style={styles.Fbtxt1}>Log Out</Text>
-        </TouchableOpacity>
+            <Text style={styles.name1}> Phone Number</Text>
+            <View style={styles.inputView}>
+              <TextInput
+                style={styles.TextInput}
+                placeholderTextColor="#003f5c"
+                // onChangeText={(password) => setPassword(password)}
+              />
+            </View>
+
+            <TouchableOpacity style={styles.mobileBtn}>
+              <Text style={styles.Fbtxt1}>Update</Text>
+           </TouchableOpacity>
       </View>
     )
   }
@@ -65,6 +76,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  container1: {
+    marginTop: 200
+  },
   container2: {
     flexDirection : 'row',
     backgroundColor: "#006491",
@@ -73,7 +87,9 @@ const styles = StyleSheet.create({
     borderRadius : 40,
     width : 400,
     maxHeight: 190,
-    marginTop : -100,
+    marginTop : -150,
+    marginBottom: 130
+
   },
   mobileBtn: {
     width: "70%",
@@ -114,7 +130,6 @@ const styles = StyleSheet.create({
     borderRadius : 100,
     width : 120,
     height : 120,
-    marginTop : 0,
    
     
   },
@@ -138,11 +153,10 @@ const styles = StyleSheet.create({
   inputView: {
     backgroundColor: "#E8E8E8",
     borderRadius: 15,
-    width: "70%",
+    width: "80%",
     height: 45,
     marginBottom: 20,
 
-    alignItems: "center",
   },
   TextInput: {
     height: 50,
@@ -154,9 +168,40 @@ const styles = StyleSheet.create({
 
 
   image: {
-    marginRight : 0,
+    marginLeft : 35,
     width: 100,
     height: 100,
     marginTop : 0
   },
+  Name:{
+    width : 150,
+    fontSize: 18,
+    color: "#0E0D0D",
+    marginTop: 15,
+    marginLeft: 20
+
+
+  },
+  name1:{
+    width : 150,
+    fontSize: 16,
+    color: "#0E0D0D",
+    marginRight: 140,
+    marginBottom: 5
+
+  },
+  Fbtxt1:{
+    color: "#fff",
+
+  },
+  loginBtn: {
+    width: 240,
+    borderRadius: 100,
+    height: 50,
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 120,
+    backgroundColor: "#E42E4B",
+    marginLeft: 35
+},
 })

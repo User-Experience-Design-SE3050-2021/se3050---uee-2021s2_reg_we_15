@@ -17,6 +17,8 @@ import CheckOutScreen from './src/screens/CheckOutScreen';
 import ConfirmationScreen from './src/screens/ConfirmationScreen';
 import SignupScreen from './src/screens/SignupScreen';
 import ProfileScreen from './src/screens/ProfileScreen';
+import updateProfile from './src/screens/UpdateProfile';
+
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -46,6 +48,7 @@ const AppNavigator = createStackNavigator(
     LoginScreen: {screen: LoginScreen},
     SignupScreen: {screen: SignupScreen},
     ProfileScreen: { screen: ProfileScreen },
+    UpdateProfile:{screen: updateProfile},
     // Perusha
     DeliveryScreen: {screen: DeliveryScreen},
     PaymentScreen: {screen: PaymentScreen},

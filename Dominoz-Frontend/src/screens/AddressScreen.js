@@ -51,7 +51,7 @@ export default class AddressScreen extends React.Component {
     }
 
     addAddress() {
-        var url = 'http://192.168.8.105:8080/address/createAddress';
+        var url = 'http://192.168.1.102:8080/address/createAddress';
         var data = {
             Address: this.state.Address,
             number: this.state.number,

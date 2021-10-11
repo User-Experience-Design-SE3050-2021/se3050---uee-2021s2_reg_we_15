@@ -24,7 +24,9 @@ export default class Profilescreen extends Component {
       <View style={styles.container}>
         <View style={styles.container2}>
         <View style={styles.container4}>
-            <Text style={[styles.Name, {color: '#fff', fontSize: 15, fontWeight: 'normal', marginLeft: 400, marginTop: -30, marginBottom: 5}]}>Edit</Text>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate('MenuScreen')}>
+            <Text style={[styles.Name, {color: '#fff', fontSize: 15, fontWeight: 'normal', marginLeft: 400, marginTop: -30, marginBottom: 60}]}>Edit</Text>
+            </TouchableOpacity>
         <View style={styles.containerx}>
           <View style = {{flex : 1, flexDirection : 'column'}}>
           <Image style={styles.image}  source={require('../../images/profile.png')}></Image>
@@ -45,7 +47,7 @@ export default class Profilescreen extends Component {
           <Text style={styles.Fbtxt}> My Address</Text>
            <Image style={styles.icon} source={require('../../images/back.png')} />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.container3}>
+        <TouchableOpacity style={styles.container3} onPress={() => this.props.navigation.navigate('UpdateProfile')}>
           <Text style={styles.Fbtxt}> Privacy & Safety</Text>
             <Image style={styles.icon} source={require('../../images/back.png')} />
           </TouchableOpacity>
@@ -123,7 +125,7 @@ const styles = StyleSheet.create({
     borderRadius : 100,
     width : 120,
     height : 120,
-    marginTop : 0,
+    marginTop : -50,
    
     
   },
