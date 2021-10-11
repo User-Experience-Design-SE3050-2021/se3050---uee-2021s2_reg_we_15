@@ -128,20 +128,20 @@ const styles = StyleSheet.create({
 
     },
     image1: {
-        width: 40,
-        height: 40,
+        width: 30,
+        height: 30,
         marginTop: -50,
         marginLeft: 250
     },
     image2: {
-        width: 40,
-        height: 40,
+        width: 30,
+        height: 30,
         marginTop: 10,
         marginLeft: 250
     },
     image3: {
-        width: 40,
-        height: 40,
+        width: 30,
+        height: 30,
         marginTop: -40,
         marginLeft: 250
     },
