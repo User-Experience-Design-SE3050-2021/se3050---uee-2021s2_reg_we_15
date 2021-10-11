@@ -95,9 +95,10 @@ const styles = StyleSheet.create({
   },
 
   image: {
-    marginTop : -30,
+    // marginTop : -30,
     width: 422,
-    height: 200
+    height: 200,
+    resizeMode: 'cover'
   },
 
   fbimage:{

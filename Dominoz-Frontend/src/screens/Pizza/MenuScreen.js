@@ -30,9 +30,9 @@ const tags = [
 export default class MenuScreen extends React.Component {
 	static navigationOptions = {
 		title: 'Explore Menu',
-		headerRight: <Button onPress={() => alert('This is a button!')}
-			title="null"
-			color="#0000" />,
+		// headerRight: <Button onPress={() => alert('This is a button!')}
+		// 	title="null"
+		// 	color="#0000" />,
 	}
 
 	constructor(props) {
@@ -43,44 +43,44 @@ export default class MenuScreen extends React.Component {
 				{
 					id: 1,
 					color: '#FF4500',
-					icon: 'https://image.freepik.com/free-photo/pizza-with-fresh-champignons-bacon-smoked-chicken-fillet-mozzarella-cheese-sliced-tomato-green-onions-piece-is-cut-off-from-pizza-white-background-isolated-closeup_323569-268.jpg',
-					name: 'Chicken Spicy Pizza',
-					price: 'Rs. 1189/=',
+					pizzaImage: 'https://image.freepik.com/free-photo/pizza-with-fresh-champignons-bacon-smoked-chicken-fillet-mozzarella-cheese-sliced-tomato-green-onions-piece-is-cut-off-from-pizza-white-background-isolated-closeup_323569-268.jpg',
+					pizzaName: 'Chicken Spicy Pizza',
+					pizzaPrice: '1189',
 				},
 				{
 					id: 2,
 					color: '#87CEEB',
-					icon: 'https://thumbs.dreamstime.com/b/fresh-tasty-pizza-white-background-clipping-path-included-85746388.jpg',
-					name: 'Detroit Pizza',
-					price: 'Rs. 1939/=',
+					pizzaImage: 'https://thumbs.dreamstime.com/b/fresh-tasty-pizza-white-background-clipping-path-included-85746388.jpg',
+					pizzaName: 'Detroit Pizza',
+					pizzaPrice: '1939',
 				},
 				{
 					id: 3,
 					color: '#4682B4',
-					icon: 'https://previews.123rf.com/images/typssiaod/typssiaod1209/typssiaod120900069/15223003-hawaiian-pizza-on-white-background.jpg',
-					name: 'Sicilian Pizza',
-					price: 'Rs. 1500/=',
+					pizzaImage: 'https://previews.123rf.com/images/typssiaod/typssiaod1209/typssiaod120900069/15223003-hawaiian-pizza-on-white-background.jpg',
+					pizzaName: 'Sicilian Pizza',
+					pizzaPrice: '1500',
 				},
 				{
 					id: 4,
 					color: '#6A5ACD',
-					icon: 'https://previews.123rf.com/images/sacura123/sacura1231703/sacura123170300159/74828679-pepperoni-pizza-isolated-on-white-background.jpg',
-					name: 'Neapolitan Pizza',
-					price: 'Rs. 1235/=',
+					pizzaImage: 'https://previews.123rf.com/images/sacura123/sacura1231703/sacura123170300159/74828679-pepperoni-pizza-isolated-on-white-background.jpg',
+					pizzaName: 'Neapolitan Pizza',
+					pizzaPrice: '1235',
 				},
 				{
 					id: 5,
 					color: '#FF69B4',
-					icon: 'https://previews.123rf.com/images/gbh007/gbh0071712/gbh007171200400/92223692-pizza-with-chicken-and-vegetables-on-white-background.jpg',
-					name: 'Meatilicious Pizza',
-					price: 'Rs. 850/=',
+					pizzaImage: 'https://previews.123rf.com/images/gbh007/gbh0071712/gbh007171200400/92223692-pizza-with-chicken-and-vegetables-on-white-background.jpg',
+					pizzaName: 'Meatilicious Pizza',
+					pizzaPrice: '850',
 				},
 				{
 					id: 6,
 					color: '#00BFFF',
-					icon: 'https://previews.123rf.com/images/gbh007/gbh0071806/gbh007180600466/103181956-pizza-with-chicken-and-vegetables-on-white-background.jpg',
-					name: 'Mighty Meaty Pizza',
-					price: 'Rs. 1050/=',
+					pizzaImage: 'https://previews.123rf.com/images/gbh007/gbh0071806/gbh007180600466/103181956-pizza-with-chicken-and-vegetables-on-white-background.jpg',
+					pizzaName: 'Mighty Meaty Pizza',
+					pizzaPrice: '1050',
 				},
 			],
 			pizzaDetails: [],
@@ -88,9 +88,9 @@ export default class MenuScreen extends React.Component {
 		this.getMenu = this.getMenu.bind(this);
 	}
 
-	componentDidMount = () => {
-		this.getMenu();
-	}
+	// componentDidMount = () => {
+	// 	this.getMenu();
+	// }
 
 	getMenu = () => {
 		var url = 'http://192.168.8.105:8080/menu/';
@@ -135,7 +135,7 @@ export default class MenuScreen extends React.Component {
 					<FlatList
 						style={styles.notificationList}
 						// TODO: should change
-						data={this.state.pizzaDetails}
+						data={this.state.data}
 						keyExtractor={(item) => {
 							return item.id;
 						}}
