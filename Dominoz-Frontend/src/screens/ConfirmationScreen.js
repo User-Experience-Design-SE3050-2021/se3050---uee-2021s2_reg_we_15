@@ -18,8 +18,9 @@ export default class SplashScreen extends React.Component {
     render() {
         return (
             <View style={styles.container}>
+                <TouchableOpacity onPress={() => this.props.navigation.navigate('MainScreen')}>
                 <Image style={styles.image} source={require('../../images/confirm.png')} />
-
+</TouchableOpacity>
             </View>
         )
     }

@@ -66,12 +66,12 @@ const AppNavigator = createStackNavigator(
       headerStyle: {
         backgroundColor: '#006491',
       },
-      headerRight: (
-        <Image
-          style={{width: 30, height: 30, margin: 20}}
-          source={require('./images/cart.png')}
-        />
-      ),
+      // headerRight: (
+      //   <Image
+      //     style={{width: 30, height: 30, margin: 20}}
+      //     source={require('./images/cart.png')}
+      //   />
+      // ),
     },
     // navigationOptions: {
     //   tabBarLabel: 'Home!!!!',

@@ -75,9 +75,11 @@ export default class AddressScreen extends React.Component {
             <View style={styles.container}>
                 <ScrollView>
                 <View style={styles.container}>
-                    <TouchableOpacity style={{ backgroundColor: '#006491', height: 40, padding: 10, marginBottom:10 }}>
+                        <View style={{ backgroundColor: '#fff', height: 300, width: 400}}>
+                    <TouchableOpacity style={{ backgroundColor: '#006491', height: 40, padding: 10, marginBottom:10, marginLeft: -160, width: 490 }}>
                         <Text style={styles.forgot_button}>Add Your Address</Text>
                         </TouchableOpacity>
+                       
                 <Text style={styles.loginText}>Your Location</Text>
                 <View style={styles.inputView}>
                     <TextInput
@@ -97,12 +99,12 @@ export default class AddressScreen extends React.Component {
                         // placeholder="Card Number*"
                         placeholderTextColor="#003f5c"
                     />
-               <View style={{flex: 1, flexDirection: 'row'}}>
+               <View style={{flex: 1, flexDirection: 'row',}}>
                         <View style={{flex: 1, flexDirection: 'column', width: 10,marginTop:10}}>
                                 <Text style={styles.loginText}>City</Text>
                                 <View style={styles.inputView}>
                                     <TextInput
-                                        style={[styles.TextInput, {width: 165}]}
+                                        style={[styles.TextInput, {width: 125}]}
                                             value={this.state.city}
                                             onChangeText={this.onChangeCity}
                                         // placeholder="CVC*"
@@ -114,7 +116,7 @@ export default class AddressScreen extends React.Component {
                                 <Text style={styles.loginText}>Street Name</Text>
                                 <View style={styles.inputView}>
                                     <TextInput
-                                        style={[styles.TextInput, {width: 175}]}
+                                        style={[styles.TextInput, {width: 155,}]}
                                             value={this.state.streetName}
                                             onChangeText={this.onChangeStreetName}
                                         // placeholder="Expire Date"
@@ -122,6 +124,7 @@ export default class AddressScreen extends React.Component {
                                     />
                                 </View>
                         </View>
+                    </View>
                     </View>
                     </View>
                     </View>
@@ -143,8 +146,8 @@ export default class AddressScreen extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        // backgroundColor: "#F1F5FF",
-        backgroundColor: "#ffff",
+        backgroundColor: "#F1F5FF",
+        // backgroundColor: "#ffff",
         padding: 10,
         paddingTop: 20
         // alignItems: "center",
@@ -159,13 +162,13 @@ const styles = StyleSheet.create({
         // backgroundColor: "#E8E8E8",
         // width: "80%",
         height: 75,
-        marginBottom: 20,
+        marginBottom: -10,
        // alignItems: "center",
         marginLeft: 8
     },
     TextInput: {
-        height: 50,
-        flex: 1,
+        height: 20,
+        flex: 0.5,
         padding: 10,
         // marginLeft: 20,
         backgroundColor: '#ffff',
@@ -183,7 +186,6 @@ const styles = StyleSheet.create({
     loginBtn: {
         width: 240,
         borderRadius: 100,
-        height: 50,
         alignItems: "center",
         justifyContent: "center",
         marginTop: 80,

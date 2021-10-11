@@ -24,7 +24,7 @@ export default class Profilescreen extends Component {
       <View style={styles.container}>
         <View style={styles.container2}>
         <View style={styles.container4}>
-            <Text style={[styles.Name, {color: '#fff', fontSize: 15, fontWeight: 'normal', marginLeft: 400, marginTop: -30, marginBottom: 5}]}>Edit</Text>
+            <Text style={[styles.Name, { color: '#fff', fontSize: 15, fontWeight: 'normal', marginLeft: 450, marginTop: -30, marginBottom: 5 }]}>Edit</Text>
         <View style={styles.containerx}>
           <View style = {{flex : 1, flexDirection : 'column'}}>
           <Image style={styles.image}  source={require('../../images/profile.png')}></Image>
@@ -59,7 +59,7 @@ export default class Profilescreen extends Component {
           </TouchableOpacity>
         
         </View>
-        <TouchableOpacity style={styles.mobileBtn}>
+        <TouchableOpacity style={styles.mobileBtn} onPress={() => this.props.navigation.navigate('LoginScreen')}>
               <Text style={styles.Fbtxt1}>Log Out</Text>
         </TouchableOpacity>
       </View>
@@ -138,9 +138,12 @@ const styles = StyleSheet.create({
   },
   container5: {
     padding : 10,
-    width : 150,
+    width : 200,
     height : 180,
     marginTop : 50,
+    // borderWidth: 10,
+    justifyContent: 'center',
+    alignContent: 'center',
     marginLeft: 40
     
   },
@@ -160,8 +163,8 @@ const styles = StyleSheet.create({
 
   },
   Name:{
-    marginLeft : -10,
-    width : 150,
+    // marginLeft : -10,
+    width : 250,
     fontSize: 24,
     fontWeight: "bold",
     color: "#0E0D0D",
@@ -171,17 +174,17 @@ const styles = StyleSheet.create({
   phone:{
     marginRight : 160,
     marginTop : 10,
-    width : 150,
-    fontSize: 18,
+    width : 250,
+    fontSize: 17,
     color: "#0E0D0D",
-    marginLeft: -20
+    // marginLeft: -20
 
 
   },
   email:{
     marginTop : 10,
     color: "#0E0D0D",
-    marginLeft: -15,
+    // marginLeft: -15,
     fontSize: 14,
 
   },
