@@ -18,6 +18,11 @@ export default class PaymentScreen extends React.Component {
     render() {
         return (
             <View style={styles.container}>
+                <View style={styles.container1}>
+                <TouchableOpacity style={{ backgroundColor: '#006491', height: 40, padding: 10 }}>
+                        <Text style={styles.forgot_button}>Payment gateway</Text>
+                    </TouchableOpacity>
+
                 <Text style={styles.loginText}>Card Holder’s Name*</Text>
                 <View style={styles.inputView}>
                     <TextInput
@@ -53,6 +58,7 @@ export default class PaymentScreen extends React.Component {
                         secureTextEntry={true}
                     />
                 </View>
+                </View>
 
                 <TouchableOpacity style={styles.loginBtn}>
                     <Text style={styles.pay}>Pay Now</Text>
@@ -66,11 +72,17 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         // backgroundColor: "#F1F5FF",
-        backgroundColor: "#ffff",
+        backgroundColor : '#F1F5FF',
         padding: 10,
         paddingTop: 30
         // alignItems: "center",
         // justifyContent: "center",
+    },
+    container1: {
+        backgroundColor: "#ffff",
+        padding: 10,
+        borderColor : "#ffff",
+        borderWidth : 1,
     },
     image: {
         marginBottom: 40,
@@ -79,9 +91,10 @@ const styles = StyleSheet.create({
     },
     inputView: {
         // backgroundColor: "#E8E8E8",
-        // width: "80%",
-        height: 45,
+        width: "80%",
+        height: 35,
         marginBottom: 20,
+        marginLeft: 20,
         alignItems: "center",
     },
     TextInput: {
@@ -113,7 +126,22 @@ const styles = StyleSheet.create({
         color: "#fff"
     },
     loginText: {
+        marginTop: 20,
         textAlign: 'left',
         marginLeft: 8
-    }
+    },
+    container2: {
+        backgroundColor: "#006491",
+        borderColor : "#FDFDFD",
+        borderWidth : 1,
+        borderRadius : 40,
+        width : 400,
+        maxHeight: 290,
+        marginTop : 100,
+      },
+      forgot_button: {
+        height: 30,
+        marginBottom: 30,
+        color: "#fff"
+    },
 });
