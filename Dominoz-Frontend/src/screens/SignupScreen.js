@@ -38,7 +38,7 @@ export default class SignupScreen extends React.Component {
             </View>
 
 
-            <TouchableOpacity style={styles.submitBtn}>
+            <TouchableOpacity style={styles.submitBtn} onPress={() => this.props.navigation.navigate('LoginScreen')}>
               <Text style={styles.submitTxt}>SUBMIT</Text>
             </TouchableOpacity>
 
@@ -72,7 +72,9 @@ export default class SignupScreen extends React.Component {
             <Text style={styles.Fbtxt}> Continue with Facebook</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.skipLoginBtn}>
+            <TouchableOpacity style={styles.skipLoginBtn}
+              onPress={() => this.props.navigation.navigate('MainScreen')}
+            >
               <Text style={styles.skipLoginTxt}>SKIP LOGIN</Text>
             </TouchableOpacity>
 

@@ -10,7 +10,7 @@ import {
     TouchableOpacity,
     Dimensions,
 } from "react-native";
-const { width} = Dimensions.get('window');
+const { width } = Dimensions.get('window');
 
 export default class MyAddressScreen extends React.Component {
     static navigationOptions = {
@@ -20,73 +20,74 @@ export default class MyAddressScreen extends React.Component {
         return (
             <View style={styles.container}>
                 <View style={styles.container}>
-                    <TouchableOpacity style={{ backgroundColor: '#006491', height: 40, padding: 10, marginBottom:10 }}>
+                    <TouchableOpacity style={{ backgroundColor: '#006491', height: 40, padding: 10 }}>
                         <Text style={styles.forgot_button}>My Addresses</Text>
-                        </TouchableOpacity>
-                <TouchableOpacity style={[styles.card, { borderColor: '#00BFFF' }]}>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={[styles.card, { borderColor: '#00BFFF' }]}>
                         {/* Row */}
                         <View style={styles.cardContent}>
-                        <View style={styles.imageContainer}>
+                            {/* column */}
+                            <View style={styles.imageContainer}>
                                 <Text style={styles.name}>Home</Text>
                                 <Text style={styles.det}>139/9,Kurunegala Rd,</Text>
                                 <Text style={styles.det}>Kegalle</Text>
                             </View>
-                            <View style={{flex: 1, flexDirection: 'row'}}>
-                         <View style = {{flex : 1, flexDirection : 'column',paddingLeft:40}}>
-                         <TouchableOpacity style={styles.Btn}
-                onPress={() => this.props.navigation.navigate('AddressScreen')}>
-                    <Image style={styles.image} source={{ uri: 'https://cdn-icons-png.flaticon.com/128/3597/3597088.png' }}/>
-                </TouchableOpacity>
-                             </View>
-                             <View style = {{flex : 1, flexDirection : 'column',paddingRight:20}}>
-                         <TouchableOpacity style={styles.Btn}
-                onPress={() => this.props.navigation.navigate('AddressScreen')}>
-                    <Image style={styles.image} source={{ uri: 'https://cdn-icons-png.flaticon.com/128/216/216658.png' }}/>
-                </TouchableOpacity>
-                             </View></View>
-                            </View>
-                            </TouchableOpacity>
-                            <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                <View style={{flex: 1, height: 1, backgroundColor: '#CCBEBE'}} />
-             {/* <View>
-                <Text style={{width: 50, textAlign: 'center' , color:"#CCBEBE"}}></Text>
-            </View> */}
-                <View style={{flex: 1, height: 1, backgroundColor: '#CCBEBE'}} />
-            </View>
-                            <TouchableOpacity style={[styles.card, { borderColor: '#00BFFF' }]}>
-                        {/* Row */}
-                        <View style={styles.cardContent}>
-                            {/* Column for text */}
+                            {/* Column */}
                             <View style={styles.imageContainer}>
-                                <Text style={styles.name}>Work</Text>
-                                <Text style={styles.det}>247/A,H Rd,Koswatte </Text>
-                                <Text style={styles.det}>Malabe</Text>
-                                
+                                <View style={{ flexDirection: 'row' }}>
+                                    <TouchableOpacity style={styles.Btn}
+                                        onPress={() => this.props.navigation.navigate('AddressScreen')}>
+                                        <Image style={styles.image} source={{ uri: 'https://cdn-icons-png.flaticon.com/128/3597/3597088.png' }} />
+                                    </TouchableOpacity>
+                                    <TouchableOpacity style={styles.Btn}
+                                        onPress={() => this.props.navigation.navigate('AddressScreen')}>
+                                        <Image style={styles.image} source={{ uri: 'https://cdn-icons-png.flaticon.com/128/216/216658.png' }} />
+                                    </TouchableOpacity>
+                                </View>
                             </View>
-                            <View style={{flex: 1, flexDirection: 'row'}}>
-                         <View style = {{flex : 1, flexDirection : 'column',paddingLeft:40}}>
-                         <TouchableOpacity style={styles.Btn}
-                onPress={() => this.props.navigation.navigate('AddressScreen')}>
-                    <Image style={styles.image} source={{ uri: 'https://cdn-icons-png.flaticon.com/128/3597/3597088.png' }}/>
-                </TouchableOpacity>
-                             </View>
-                             <View style = {{flex : 1, flexDirection : 'column',paddingRight:20}}>
-                         <TouchableOpacity style={styles.Btn}
-                onPress={() => this.props.navigation.navigate('AddressScreen')}>
-                    <Image style={styles.image} source={{ uri: 'https://cdn-icons-png.flaticon.com/128/216/216658.png' }}/>
-                </TouchableOpacity>
-                             </View></View>
                         </View>
                     </TouchableOpacity>
-                    <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                <View style={{flex: 1, height: 1, backgroundColor: '#CCBEBE'}} />
-             {/* <View>
+                    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                        <View style={{ flex: 1, height: 1, backgroundColor: '#CCBEBE' }} />
+                        {/* <View>
                 <Text style={{width: 50, textAlign: 'center' , color:"#CCBEBE"}}></Text>
             </View> */}
-                <View style={{flex: 1, height: 1, backgroundColor: '#CCBEBE'}} />
-            </View>
-            
-                {/* <Text style={styles.loginText}>Your Location</Text>
+                        <View style={{ flex: 1, height: 1, backgroundColor: '#CCBEBE' }} />
+                    </View>
+
+                    <TouchableOpacity style={[styles.card, { borderColor: '#00BFFF' }]}>
+                        {/* Row */}
+                        <View style={styles.cardContent}>
+                            {/* column */}
+                            <View style={styles.imageContainer}>
+                                <Text style={styles.name}>Work</Text>
+                                <Text style={styles.det}>247/A,H Rd,Koswatte</Text>
+                                <Text style={styles.det}>Malabe</Text>
+                            </View>
+                            {/* Column */}
+                            <View style={styles.imageContainer}>
+                                <View style={{ flexDirection: 'row' }}>
+                                    <TouchableOpacity style={styles.Btn}
+                                        onPress={() => this.props.navigation.navigate('AddressScreen')}>
+                                        <Image style={styles.image} source={{ uri: 'https://cdn-icons-png.flaticon.com/128/3597/3597088.png' }} />
+                                    </TouchableOpacity>
+                                    <TouchableOpacity style={styles.Btn}
+                                        onPress={() => this.props.navigation.navigate('AddressScreen')}>
+                                        <Image style={styles.image} source={{ uri: 'https://cdn-icons-png.flaticon.com/128/216/216658.png' }} />
+                                    </TouchableOpacity>
+                                </View>
+                            </View>
+                        </View>
+                    </TouchableOpacity>
+                    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                        <View style={{ flex: 1, height: 1, backgroundColor: '#CCBEBE' }} />
+                        {/* <View>
+                <Text style={{width: 50, textAlign: 'center' , color:"#CCBEBE"}}></Text>
+            </View> */}
+                        <View style={{ flex: 1, height: 1, backgroundColor: '#CCBEBE' }} />
+                    </View>
+
+                    {/* <Text style={styles.loginText}>Your Location</Text>
                 <View style={styles.inputView}>
                     <TextInput
                         style={styles.TextInput}
@@ -100,7 +101,7 @@ export default class MyAddressScreen extends React.Component {
                         style={styles.TextInput}
                         // placeholder="Card Number*"
                         placeholderTextColor="#003f5c"
-                        secureTextEntry={true}
+                         
                     />
                 </View>
                 <Text style={styles.loginText}>City</Text>
@@ -109,7 +110,7 @@ export default class MyAddressScreen extends React.Component {
                         style={styles.TextInput}
                         // placeholder="CVC*"
                         placeholderTextColor="#003f5c"
-                        secureTextEntry={true}
+                         
                     />
                 </View>
                 <Text style={styles.loginText}>Street Name</Text>
@@ -118,35 +119,34 @@ export default class MyAddressScreen extends React.Component {
                         style={styles.TextInput}
                         // placeholder="Expire Date"
                         placeholderTextColor="#003f5c"
-                        secureTextEntry={true}
+                         
                     />
                 </View>
 
                 <TouchableOpacity style={styles.loginBtn}>
                     <Text style={styles.pay}>Save</Text>
                 </TouchableOpacity> */}
-                 <TouchableOpacity style={styles.loginBtn}
-                onPress={() => this.props.navigation.navigate('AddressScreen')}>
-                    <Text style={styles.pay}>Add New Address</Text>
-                </TouchableOpacity>
-             </View>
-             </View>
-            )
-        }
+                    <TouchableOpacity style={styles.loginBtn}
+                        onPress={() => this.props.navigation.navigate('AddressScreen')}>
+                        <Text style={styles.pay}>Add New Address</Text>
+                    </TouchableOpacity>
+                </View>
+            </View>
+        )
+    }
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        // backgroundColor: "#F1F5FF",
-        backgroundColor: "#ffff",
+        backgroundColor: "#F1F5FF",
+        // backgroundColor: "#000",
         padding: 10,
         paddingTop: 30,
         // alignItems: "center",
         // justifyContent: "center",
     },
     image: {
-        marginBottom: 40,
         width: 30,
         height: 30
     },
@@ -172,29 +172,32 @@ const styles = StyleSheet.create({
         marginBottom: 30,
         color: "#fff",
         textAlign: 'center',
+        fontSize: 17
     },
     loginBtn: {
-        width: "60%",
-        borderRadius: 25,
+        width: 240,
+        borderRadius: 100,
         height: 50,
         alignItems: "center",
         justifyContent: "center",
         marginTop: 80,
         backgroundColor: "#E42E4B",
-        marginLeft:80,
+        marginLeft: 45,
     },
     Btn: {
-        width: "60%",
-        borderRadius: 25,
-        height: 50,
-        alignItems: "center",
-        justifyContent: "center",
-        marginTop: 80,
+        // width: "60%",
+        // borderRadius: 25,
+        // height: 50,
+        // marginTop: 80,
         backgroundColor: "#fff",
-        marginLeft:40,
+        marginRight: 20,
     },
     pay: {
-        color: "#fff"
+        color: '#fff',
+        fontSize: 14,
+        fontWeight: 'bold',
+        lineHeight: 40,
+        textAlign: 'center',
     },
     loginText: {
         textAlign: 'left',
@@ -204,24 +207,26 @@ const styles = StyleSheet.create({
         height: 40,
         width: width * 0.3,
         marginRight: 8,
-        borderRadius:25,
+        borderRadius: 25,
         borderBottomWidth: 1,
         borderColor: '#E42E4B',
     },
     imageContainer: {
         flexDirection: 'column',
-        marginRight: 10,
+        marginRight: 50,
+        justifyContent: 'center',
+        alignSelf: 'center'
     },
     card: {
         height: null,
         // paddingTop: 10,
         // paddingBottom: 10,
-        padding:10,
+        padding: 10,
         // marginTop: 5,
         backgroundColor: 'white',
         flexDirection: 'column',
-        marginBottom: 20,
-        borderRadius: 15,
+        // marginBottom: 20,
+        // borderRadius: 15,
     },
     cardContent: {
         flexDirection: 'row',
@@ -229,7 +234,7 @@ const styles = StyleSheet.create({
     },
     name: {
         // textAlign: 'left',
-        fontSize: 20,
+        fontSize: 18,
         fontWeight: '500',
         margin: 5,
         // alignSelf: 'left'
@@ -241,7 +246,7 @@ const styles = StyleSheet.create({
         margin: 5,
         // alignSelf: 'left'
     },
-    price:{
+    price: {
         fontSize: 20,
         marginLeft: 10,
         color: '#FF5833',

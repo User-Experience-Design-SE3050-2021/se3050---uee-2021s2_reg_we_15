@@ -10,7 +10,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-export default class SplashScreen extends React.Component {
+export default class LoginScreen extends React.Component {
     static navigationOptions = {
         title: 'Log In'
     }
@@ -40,7 +40,7 @@ export default class SplashScreen extends React.Component {
               />
             </View>
 
-            <TouchableOpacity style={styles.loginBtn}>
+            <TouchableOpacity style={styles.loginBtn} onPress={() => this.props.navigation.navigate('MainScreen')}>
               <Text style={styles.loginText}>LOGIN</Text>
             </TouchableOpacity>
 

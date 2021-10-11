@@ -83,7 +83,7 @@ export default class CheckOutScreen extends React.Component {
                         </View>
                     </View>
                     <TouchableOpacity style={styles.loginBtn}
-                        onPress={() => this.props.navigation.navigate('ConfirmationScreen')}>
+                        onPress={() => this.props.navigation.navigate('PaymentScreen')}>
                         <Text style={styles.pay}>Continue to CheckOut</Text>
                     </TouchableOpacity>
 
@@ -185,8 +185,8 @@ const styles = StyleSheet.create({
         color: "#fff"
     },
     loginBtn: {
-        width: "60%",
-        borderRadius: 25,
+        width: 240,
+        borderRadius: 100,
         height: 50,
         alignItems: "center",
         justifyContent: "center",
@@ -196,7 +196,11 @@ const styles = StyleSheet.create({
 
     },
     pay: {
-        color: "#fff"
+        color: "#fff",
+        fontWeight: 'bold',
+        fontSize: 14,
+        lineHeight: 40,
+        textAlign: 'center',
     },
     loginText: {
         textAlign: 'left',

@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
+import axios from 'axios';
 import {
     StyleSheet,
     Text,
@@ -13,6 +14,14 @@ import {
 export default class PaymentScreen extends React.Component {
     static navigationOptions = {
         title: 'Payment'
+    }
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            data: {},
+            itemDetails: {}
+        };
     }
 
     render() {
@@ -37,7 +46,7 @@ export default class PaymentScreen extends React.Component {
                         style={styles.TextInput}
                         // placeholder="Card Number*"
                         placeholderTextColor="#003f5c"
-                        secureTextEntry={true}
+                         
                     />
                 </View>
                 <Text style={styles.loginText}>CVC*</Text>
@@ -46,7 +55,7 @@ export default class PaymentScreen extends React.Component {
                         style={styles.TextInput}
                         // placeholder="CVC*"
                         placeholderTextColor="#003f5c"
-                        secureTextEntry={true}
+                         
                     />
                 </View>
                 <Text style={styles.loginText}>Expire Date</Text>
@@ -55,12 +64,12 @@ export default class PaymentScreen extends React.Component {
                         style={styles.TextInput}
                         // placeholder="Expire Date"
                         placeholderTextColor="#003f5c"
-                        secureTextEntry={true}
+                         
                     />
                 </View>
                 </View>
 
-                <TouchableOpacity style={styles.loginBtn}>
+                <TouchableOpacity style={styles.loginBtn} onPress={() => this.props.navigation.navigate('ConfirmationScreen')}>
                     <Text style={styles.pay}>Pay Now</Text>
                 </TouchableOpacity>
             </View>
@@ -113,17 +122,21 @@ const styles = StyleSheet.create({
         color: "#006491"
     },
     loginBtn: {
-        width: "80%",
-        borderRadius: 25,
+        width: 240,
+        borderRadius: 100,
         height: 50,
         alignItems: "center",
         justifyContent: "center",
         marginTop: 120,
         backgroundColor: "#E42E4B",
-        marginLeft:35
+        marginLeft: 35
     },
     pay: {
-        color: "#fff"
+        color: "#fff",
+        fontWeight: 'bold',
+        fontSize: 14,
+        lineHeight: 40,
+        textAlign: 'center',
     },
     loginText: {
         marginTop: 20,
