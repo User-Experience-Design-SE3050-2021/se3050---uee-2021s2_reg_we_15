@@ -16,7 +16,7 @@ import OffersScreen from './src/screens/OffersScreen';
 import CheckOutScreen from './src/screens/CheckOutScreen';
 import ConfirmationScreen from './src/screens/ConfirmationScreen';
 import SignupScreen from './src/screens/SignupScreen';
-import Profilescreen from './src/screens/ProfileScreen';
+import ProfileScreen from './src/screens/ProfileScreen';
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -45,7 +45,7 @@ const AppNavigator = createStackNavigator(
     // Maheshi
     LoginScreen: {screen: LoginScreen},
     SignupScreen: {screen: SignupScreen},
-    ProfileScreen: { screen: Profilescreen },
+    ProfileScreen: { screen: ProfileScreen },
     // Perusha
     DeliveryScreen: {screen: DeliveryScreen},
     PaymentScreen: {screen: PaymentScreen},

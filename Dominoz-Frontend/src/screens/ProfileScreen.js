@@ -23,8 +23,8 @@ export default class Profilescreen extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.container2}>
-          
         <View style={styles.container4}>
+            <Text style={[styles.Name, {color: '#fff', fontSize: 15, fontWeight: 'normal', marginLeft: 400, marginTop: -30, marginBottom: 5}]}>Edit</Text>
         <View style={styles.containerx}>
           <View style = {{flex : 1, flexDirection : 'column'}}>
           <Image style={styles.image}  source={require('../../images/profile.png')}></Image>
@@ -41,18 +41,22 @@ export default class Profilescreen extends Component {
           </View>
           </View>
           <View style={styles.container6}>
-        <View style={styles.container3}>
+          <TouchableOpacity style={styles.container3} onPress={() => this.props.navigation.navigate('MyAddressScreen')}>
           <Text style={styles.Fbtxt}> My Address</Text>
-        </View>
-        <View style={styles.container3}>
+           <Image style={styles.icon} source={require('../../images/back.png')} />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.container3}>
           <Text style={styles.Fbtxt}> Privacy & Safety</Text>
-        </View>
-        <View style={styles.container3}>
+            <Image style={styles.icon} source={require('../../images/back.png')} />
+          </TouchableOpacity>
+        <TouchableOpacity style={styles.container3}>
           <Text style={styles.Fbtxt}>Support</Text>
-        </View>
-        <View style={styles.container3}>
+            <Image style={styles.icon} source={require('../../images/back.png')} />
+          </TouchableOpacity>
+        <TouchableOpacity style={styles.container3}>
           <Text style={styles.Fbtxt}> Contact Us</Text>
-        </View>
+            <Image style={styles.icon} source={require('../../images/back.png')} />
+          </TouchableOpacity>
         
         </View>
         <TouchableOpacity style={styles.mobileBtn}>
@@ -89,6 +93,7 @@ const styles = StyleSheet.create({
     marginTop : 20,
   },
   container3: {
+    flexDirection: 'row',
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
@@ -146,7 +151,7 @@ const styles = StyleSheet.create({
   },
   Fbtxt:{
     flexDirection: 'row',
-    marginRight : 130,
+    marginRight : 100,
     width : 150,
 
   },
@@ -179,6 +184,11 @@ const styles = StyleSheet.create({
     marginLeft: -15,
     fontSize: 14,
 
+  },
+  icon: {
+    // marginBottom: 40,
+    width: 15,
+    height: 15
   },
 
   image: {

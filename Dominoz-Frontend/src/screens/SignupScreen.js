@@ -38,7 +38,7 @@ export default class SignupScreen extends React.Component {
             </View>
 
 
-            <TouchableOpacity style={styles.submitBtn}>
+            <TouchableOpacity style={styles.submitBtn} onPress={() => this.props.navigation.navigate('LoginScreen')}>
               <Text style={styles.submitTxt}>SUBMIT</Text>
             </TouchableOpacity>
 

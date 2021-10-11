@@ -55,7 +55,7 @@ export default class SiteDashboardScreen extends React.Component {
                     </View>
                     <View style={styles.column}>
                         <TouchableOpacity
-                            onPress={() => this.props.navigation.navigate('PaymentScreen')}
+                  onPress={() => this.props.navigation.navigate('ProfileScreen')}
                             style={styles.btn}
                             activeOpacity={0.5}>
                             <Image
