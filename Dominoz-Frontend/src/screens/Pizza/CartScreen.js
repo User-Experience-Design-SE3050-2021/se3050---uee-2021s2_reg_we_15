@@ -280,9 +280,9 @@ const styles = StyleSheet.create({
     },
     btn: {
         padding: 0,
-        width: 240,
-        borderRadius: 10,
-        backgroundColor: '#E42E4B',
+        width: 250,
+        borderRadius: 100,
+        backgroundColor: '#E42E4B'
     },
     btnTxt: {
         color: '#fff',

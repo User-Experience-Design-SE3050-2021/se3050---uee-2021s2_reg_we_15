@@ -185,8 +185,8 @@ const styles = StyleSheet.create({
         color: "#fff"
     },
     loginBtn: {
-        width: "60%",
-        borderRadius: 25,
+        width: 240,
+        borderRadius: 100,
         height: 50,
         alignItems: "center",
         justifyContent: "center",
@@ -196,7 +196,11 @@ const styles = StyleSheet.create({
 
     },
     pay: {
-        color: "#fff"
+        color: "#fff",
+        fontWeight: 'bold',
+        fontSize: 14,
+        lineHeight: 40,
+        textAlign: 'center',
     },
     loginText: {
         textAlign: 'left',

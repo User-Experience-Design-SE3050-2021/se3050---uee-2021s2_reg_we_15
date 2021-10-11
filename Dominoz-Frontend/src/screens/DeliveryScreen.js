@@ -75,27 +75,28 @@ onChangeStreetName = (e) => {
     }
 
     addDelivery() {
-        var url = 'http://192.168.8.105:8080/delivery/createDelivery';
-        var data = {
-            Address: this.state.Address,
-            number: this.state.number,
-            city: this.state.city,
-            streetName: this.state.streetName,
-            mobileNo: this.state.mobileNo,
-            fName: this.state.fName,
-            lName: this.state.lName,
-            email: this.state.email,
-        };
-        axios.post(url, data)
-            .then(response => {
-                this.setState({
-                    itemDetails: response.data,
-                });
-                this.props.navigation.navigate('CheckOutScreen');
-            })
-            .catch(error => {
-                console.log(error);
-            });
+        this.props.navigation.navigate('CheckOutScreen');
+        // var url = 'http://192.168.8.105:8080/delivery/createDelivery';
+        // var data = {
+        //     Address: this.state.Address,
+        //     number: this.state.number,
+        //     city: this.state.city,
+        //     streetName: this.state.streetName,
+        //     mobileNo: this.state.mobileNo,
+        //     fName: this.state.fName,
+        //     lName: this.state.lName,
+        //     email: this.state.email,
+        // };
+        // axios.post(url, data)
+        //     .then(response => {
+        //         this.setState({
+        //             itemDetails: response.data,
+        //         });
+        //         this.props.navigation.navigate('CheckOutScreen');
+        //     })
+        //     .catch(error => {
+        //         console.log(error);
+        //     });
     }
 
     render() {
@@ -291,8 +292,8 @@ const styles = StyleSheet.create({
         color: "#fff"
     },
     loginBtn: {
-        width: "60%",
-        borderRadius: 25,
+        width: 250,
+        borderRadius: 100,
         height: 50,
         alignItems: "center",
         justifyContent: "center",
@@ -302,7 +303,11 @@ const styles = StyleSheet.create({
         
     },
     pay: {
-        color: "#fff"
+        color: "#fff",
+        fontWeight: 'bold',
+        fontSize: 14,
+        lineHeight: 40,
+        textAlign: 'center',
     },
     loginText: {
         textAlign: 'left',
