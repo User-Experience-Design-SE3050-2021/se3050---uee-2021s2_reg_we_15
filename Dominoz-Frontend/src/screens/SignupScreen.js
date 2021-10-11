@@ -22,7 +22,7 @@ export default class SignupScreen extends React.Component {
     render() {
         return (
           <View style={styles.container}>
-            <Image style={styles.image} source={{ uri: 'https://pbs.twimg.com/media/D8KaZCUU8AEDl16.jpg' }}/>
+            <Image style={styles.image} source={require('../../images/signUp.jpg')}/>
 
             {/* <StatusBar style="auto" /> */}
             <TouchableOpacity>
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
   },
 
   image: {
-    marginTop : -20,
+    marginTop : -30,
     width: 422,
     height: 200
   },
