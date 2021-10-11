@@ -21,28 +21,77 @@ export default class DeliveryScreen extends React.Component {
         super(props);
         this.state = {
             data: {},
-            itemDetails: {}
+            itemDetails: {},
+            Address: '',
+            number: '',
+            city: '',
+            streetName: '',
+            mobileNo: '',
+            fName: '',
+            lName: '',
+            email: '',
         };
+        this.onChangeAddress = this.onChangeAddress.bind(this);
+        this.onChangeNumber = this.onChangeNumber.bind(this);
+        this.onChangeCity = this.onChangeCity.bind(this);
+        this.onChangeStreetName = this.onChangeStreetName.bind(this);
+        this.onChangeMobileNo = this.onChangeMobileNo.bind(this);
+        this.onChangeFName = this.onChangeFName.bind(this);
+        this.onChangeLName = this.onChangeLName.bind(this);
+        this.onChangeEmail = this.onChangeEmail.bind(this);
         this.addDelivery = this.addDelivery.bind(this);
+    }
+
+onChangeAddress = (e) => {
+    this.setState({ Address: e });
+}
+
+onChangeNumber = (e) => {
+    this.setState({ number: e });
+}
+
+onChangeCity = (e) => {
+    this.setState({ city: e });
+}
+
+onChangeStreetName = (e) => {
+    this.setState({ streetName: e });
+}
+
+    onChangeMobileNo = (e) => {
+        this.setState({ mobileNo: e });
+    }
+
+    onChangeFName = (e) => {
+        this.setState({ fName: e });
+    }
+
+    onChangeLName = (e) => {
+        this.setState({ lName: e });
+    }
+
+    onChangeEmail = (e) => {
+        this.setState({ email: e });
     }
 
     addDelivery() {
         var url = 'http://192.168.8.105:8080/delivery/createDelivery';
         var data = {
-            Address: this.state.data.pizzaImage,
-            number: this.state.data.pizzaName,
-            city: this.state.data.pizzaPrice,
-            streetName: this.state.data.pizzaDescription,
-            mobileNo: this.state.selectedSize,
-            fName: this.state.selectedSize,
-            lName: this.state.selectedSize,
-            email: this.state.selectedSize,
+            Address: this.state.Address,
+            number: this.state.number,
+            city: this.state.city,
+            streetName: this.state.streetName,
+            mobileNo: this.state.mobileNo,
+            fName: this.state.fName,
+            lName: this.state.lName,
+            email: this.state.email,
         };
         axios.post(url, data)
             .then(response => {
                 this.setState({
                     itemDetails: response.data,
                 });
+                this.props.navigation.navigate('CheckOutScreen');
             })
             .catch(error => {
                 console.log(error);
@@ -61,6 +110,8 @@ export default class DeliveryScreen extends React.Component {
                     <View style={styles.inputView}>
                         <TextInput
                             style={styles.TextInput}
+                                value={this.state.Address}
+                                onChangeText={this.onChangeAddress}
                             placeholder="Kandy Road, Yakkala"
                             placeholderTextColor="gray"
                         />
@@ -69,6 +120,8 @@ export default class DeliveryScreen extends React.Component {
                     <View style={styles.inputView}>
                         <TextInput
                             style={styles.TextInput}
+                                value={this.state.number}
+                                onChangeText={this.onChangeNumber}
                             // placeholder="Card Number*"
                             placeholderTextColor="#003f5c"
                             secureTextEntry={true}
@@ -80,6 +133,8 @@ export default class DeliveryScreen extends React.Component {
                                 <View style={styles.inputView}>
                                     <TextInput
                                         style={[styles.TextInput, {width: 120}]}
+                                        value={this.state.city}
+                                        onChangeText={this.onChangeCity}
                                         // placeholder="CVC*"
                                         placeholderTextColor="#003f5c"
                                         secureTextEntry={true}
@@ -91,6 +146,8 @@ export default class DeliveryScreen extends React.Component {
                                 <View style={styles.inputView}>
                                     <TextInput
                                         style={[styles.TextInput, {width: 120}]}
+                                        value={this.state.streetName}
+                                        onChangeText={this.onChangeStreetName}
                                         // placeholder="Expire Date"
                                         placeholderTextColor="#003f5c"
                                         secureTextEntry={true}
@@ -107,6 +164,8 @@ export default class DeliveryScreen extends React.Component {
                     <View style={styles.inputView}>
                         <TextInput
                             style={styles.TextInput}
+                                value={this.state.mobileNo}
+                                onChangeText={this.onChangeMobileNo}
                             placeholder="+94                            Mobile No*"
                             placeholderTextColor="#003f5c"
                         />
@@ -117,6 +176,8 @@ export default class DeliveryScreen extends React.Component {
                                 <View style={styles.inputView}>
                                     <TextInput
                                         style={[styles.TextInput, { width: 120 }]}
+                                        value={this.state.fName}
+                                        onChangeText={this.onChangeFName}
                                         // placeholder="CVC*"
                                         placeholderTextColor="#003f5c"
                                         secureTextEntry={true}
@@ -128,6 +189,8 @@ export default class DeliveryScreen extends React.Component {
                                 <View style={styles.inputView}>
                                     <TextInput
                                         style={[styles.TextInput, { width: 120 }]}
+                                        value={this.state.lName}
+                                        onChangeText={this.onChangeLName}
                                         // placeholder="Expire Date"
                                         placeholderTextColor="#003f5c"
                                         secureTextEntry={true}
@@ -139,6 +202,8 @@ export default class DeliveryScreen extends React.Component {
                     <View style={styles.inputView}>
                         <TextInput
                             style={styles.TextInput}
+                                value={this.state.email}
+                                onChangeText={this.onChangeEmail}
                             // placeholder="Expire Date"
                             placeholderTextColor="#003f5c"
                             secureTextEntry={true}
@@ -164,7 +229,7 @@ export default class DeliveryScreen extends React.Component {
                             </View>
                         </View>
                         <TouchableOpacity style={styles.loginBtn}
-                            onPress={() => this.props.navigation.navigate('CheckOutScreen')}>
+                            onPress={this.addDelivery}>
                             <Text style={styles.pay}>Save</Text>
                         </TouchableOpacity>
                     </View>

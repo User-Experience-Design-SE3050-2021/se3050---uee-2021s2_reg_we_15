@@ -28,6 +28,9 @@ export default class AddressScreen extends React.Component {
             itemDetails: {}
         };
         this.onChangeAddress = this.onChangeAddress.bind(this);
+        this.onChangeNumber = this.onChangeNumber.bind(this);
+        this.onChangeCity = this.onChangeCity.bind(this);
+        this.onChangeStreetName = this.onChangeStreetName.bind(this);
         this.addAddress = this.addAddress.bind(this);
     }
 
@@ -35,20 +38,32 @@ export default class AddressScreen extends React.Component {
         this.setState({ Address: e });
     }
 
+    onChangeNumber = (e) => {
+        this.setState({ number: e });
+    }
+
+    onChangeCity = (e) => {
+        this.setState({ city: e });
+    }
+
+    onChangeStreetName = (e) => {
+        this.setState({ streetName: e });
+    }
 
     addAddress() {
         var url = 'http://192.168.8.105:8080/address/createAddress';
         var data = {
-            Address: this.state.data.pizzaImage,
-            number: this.state.data.pizzaName,
-            city: this.state.data.pizzaPrice,
-            streetName: this.state.data.pizzaDescription,
+            Address: this.state.Address,
+            number: this.state.number,
+            city: this.state.city,
+            streetName: this.state.streetName,
         };
         axios.post(url, data)
             .then(response => {
                 this.setState({
                     itemDetails: response.data,
                 });
+                this.props.navigation.navigate('MyAddressScreen');
             })
             .catch(error => {
                 console.log(error);
@@ -77,6 +92,8 @@ export default class AddressScreen extends React.Component {
                 <View style={styles.inputView}>
                     <TextInput
                         style={styles.TextInput}
+                                value={this.state.number}
+                                onChangeText={this.onChangeNumber}
                         // placeholder="Card Number*"
                         placeholderTextColor="#003f5c"
                         secureTextEntry={true}
@@ -87,6 +104,8 @@ export default class AddressScreen extends React.Component {
                                 <View style={styles.inputView}>
                                     <TextInput
                                         style={[styles.TextInput, {width: 165}]}
+                                            value={this.state.city}
+                                            onChangeText={this.onChangeCity}
                                         // placeholder="CVC*"
                                         placeholderTextColor="#003f5c"
                                         secureTextEntry={true}
@@ -98,6 +117,8 @@ export default class AddressScreen extends React.Component {
                                 <View style={styles.inputView}>
                                     <TextInput
                                         style={[styles.TextInput, {width: 175}]}
+                                            value={this.state.streetName}
+                                            onChangeText={this.onChangeStreetName}
                                         // placeholder="Expire Date"
                                         placeholderTextColor="#003f5c"
                                         secureTextEntry={true}
@@ -108,7 +129,7 @@ export default class AddressScreen extends React.Component {
                     </View>
                     </View>
                 <TouchableOpacity style={styles.loginBtn}
-                onPress={() => this.props.navigation.navigate('MyAddressScreen')}>
+                onPress={this.addAddress}>
                     <Text style={styles.pay}>Save</Text>
                 </TouchableOpacity>
                 {/* <TouchableOpacity style={styles.loginBtn}

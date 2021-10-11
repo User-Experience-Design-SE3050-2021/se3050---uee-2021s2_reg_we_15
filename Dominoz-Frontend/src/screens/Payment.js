@@ -22,27 +22,6 @@ export default class PaymentScreen extends React.Component {
             data: {},
             itemDetails: {}
         };
-        this.addPayment = this.addPayment.bind(this);
-    }
-
-    addPayment() {
-        var url = 'http://192.168.8.105:8080/payment/createPayment';
-        var data = {
-            name: this.state.data.pizzaImage,
-            expireMonth: this.state.data.pizzaName,
-            expireYear: this.state.data.pizzaPrice,
-            cvc: this.state.data.pizzaDescription,
-            cardNumber: this.state.selectedSize,
-        };
-        axios.post(url, data)
-            .then(response => {
-                this.setState({
-                    itemDetails: response.data,
-                });
-            })
-            .catch(error => {
-                console.log(error);
-            });
     }
 
     render() {

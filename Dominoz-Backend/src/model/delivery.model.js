@@ -18,7 +18,7 @@ const deliverySchema = new mongoose.Schema({
         required: true
     },
     mobileNo: {
-        type: Boolean,
+        type: String,
         required: true
     },
     fName: {

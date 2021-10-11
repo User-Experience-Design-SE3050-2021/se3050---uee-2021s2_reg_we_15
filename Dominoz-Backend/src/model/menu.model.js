@@ -12,7 +12,7 @@ const PizzaSchema = new mongoose.Schema({
         trim: true
     },
     pizzaPrice: {
-        type: String,
+        type: Number,
         required: true,
         trim: true
     },
