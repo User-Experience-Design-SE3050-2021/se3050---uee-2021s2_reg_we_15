@@ -28,9 +28,9 @@ const dummyData = [
 export default class OffersScreen extends React.Component {
     static navigationOptions = {
         title: 'Everyday Value Offers',
-        headerRight: <Button onPress={() => alert('This is a button!')}
-            title="Profile"
-            color="#0000"/>,
+        // headerRight: <Button onPress={() => alert('This is a button!')}
+        //     title="Profile"
+        //     color="#0000"/>,
         
     }
 
@@ -62,13 +62,13 @@ export default class OffersScreen extends React.Component {
                                 <Image style={[styles.image, styles.imageContent]} source={{ uri: 'https://th.bing.com/th/id/OIP.8OgO7REHpnWneRWR-bpsGQHaE8?w=302&h=201&c=7&r=0&o=5&pid=1.7' }} />
                             </View>
                             {/* Column for text */}
-                            <View style={styles.imageContainer}>
+                            <View style={[styles.imageContainer, {width: 150}]}>
                                 <Text style={styles.name}>Family Deals</Text>
                                 <Text style={styles.price}>20% Off</Text>
                                 <Text style={styles.det}>Large pan Pizza, Potato Wedges, Cheesy Dip </Text>
                                 <View style={{flex: 1, flexDirection: 'row'}}>
                                 <Text style={styles.name}>LKR: 3500</Text>
-                                <TouchableOpacity style={styles.btnColor}
+                                <TouchableOpacity style={[styles.btnColor, {width: 80}]}
                                     onPress={() => this.props.navigation.navigate('CartScreen')}>
                                     <Text style={styles.btnText}>Select</Text>
                                 </TouchableOpacity>
@@ -85,13 +85,13 @@ export default class OffersScreen extends React.Component {
                                 <Image style={[styles.image, styles.imageContent]} source={{ uri: 'https://th.bing.com/th/id/OIP.4mADq8p1QvtEQFHgTrM8QAHaJQ?w=152&h=190&c=7&r=0&o=5&pid=1.7' }} />
                             </View>
                             {/* Column for text */}
-                            <View style={styles.imageContainer}>
+                            <View style={[styles.imageContainer, { width: 150 }]}>
                                 <Text style={styles.name}>Party Combo</Text>
                                 <Text style={styles.price}>Save Rs.450</Text>
                                 <Text style={styles.det}>Two Large pan Pizza, Potato Wedges</Text>
                                 <View style={{flex: 1, flexDirection: 'row'}}>
                                 <Text style={styles.name}>LKR: 2500</Text>
-                                <TouchableOpacity style={styles.btnColor}
+                                    <TouchableOpacity style={[styles.btnColor, { width: 80 }]}
                                 onPress={() => this.props.navigation.navigate('CartScreen')}>
                                     <Text style={styles.btnText}>Select</Text>
                                 </TouchableOpacity>
@@ -108,13 +108,13 @@ export default class OffersScreen extends React.Component {
                                 <Image style={[styles.image, styles.imageContent]} source={{ uri: 'https://th.bing.com/th/id/OIP.CsCxKLgElKLPm9VcuMCF2AHaKD?w=143&h=195&c=7&r=0&o=5&pid=1.7' }} />
                             </View>
                             {/* Column for text */}
-                            <View style={styles.imageContainer}>
+                            <View style={[styles.imageContainer, { width: 150 }]}>
                                 <Text style={styles.name}>Sri Lankan Meaty</Text>
                                 <Text style={styles.price}>Free Pepsi 200ml</Text>
                                 <Text style={styles.det}>Large pan Pizza, Peri Peri Sauce Dip </Text>
                                 <View style={{flex: 1, flexDirection: 'row'}}>
                                 <Text style={styles.name}>LKR: 1550</Text>
-                                <TouchableOpacity style={styles.btnColor}
+                                    <TouchableOpacity style={[styles.btnColor, { width: 80 }]}
                                 onPress={() => this.props.navigation.navigate('CartScreen')}>
                                     <Text style={styles.btnText}>Select</Text>
                                 </TouchableOpacity>
@@ -131,13 +131,13 @@ export default class OffersScreen extends React.Component {
                                 <Image style={[styles.image, styles.imageContent]} source={{ uri: 'https://i0.wp.com/www.eatlanka.com/wp-content/uploads/2020/11/216054.jpg' }} />
                             </View>
                             {/* Column for text */}
-                            <View style={styles.imageContainer}>
+                            <View style={[styles.imageContainer, { width: 150 }]}>
                                 <Text style={styles.name}>Spicy Chicken Pizza</Text>
                                 <Text style={styles.price}>Save Rs.200</Text>
                                 <Text style={styles.det}>Two Medium Pan Pizza</Text>
                                 <View style={{flex: 1, flexDirection: 'row'}}>
                                 <Text style={styles.name}>LKR: 1650</Text>
-                                <TouchableOpacity style={styles.btnColor}>
+                                    <TouchableOpacity style={[styles.btnColor, { width: 80 }]}>
                                     <Text style={styles.btnText}>Select</Text>
                                 </TouchableOpacity>
                             </View>
@@ -183,6 +183,8 @@ const styles = StyleSheet.create({
     imageContainer: {
         flexDirection: 'column',
         marginRight: 10,
+        justifyContent: 'center',
+        alignSelf: 'center'
     },
     card: {
         height: null,
@@ -204,8 +206,9 @@ const styles = StyleSheet.create({
     },
     image: {
         width: 150,
-        height: 130,
+        height: 140,
         borderRadius: 10,
+        // resizeMode: 'cover'
     },
     name: {
         // textAlign: 'left',
@@ -222,7 +225,9 @@ const styles = StyleSheet.create({
         // alignSelf: 'left'
     },
     price:{
-        fontSize: 20,
+        fontSize: 18,
+        // backgroundColor: '#000',
+        fontWeight: '900',
         marginLeft: 10,
         color: '#FF5833',
     },

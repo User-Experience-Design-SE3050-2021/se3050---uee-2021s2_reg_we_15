@@ -9,6 +9,7 @@ import {
     TextInput,
     Button,
     TouchableOpacity,
+    ScrollView
 } from "react-native";
 
 export default class PaymentScreen extends React.Component {
@@ -27,8 +28,9 @@ export default class PaymentScreen extends React.Component {
     render() {
         return (
             <View style={styles.container}>
+                <ScrollView>
                 <View style={styles.container1}>
-                <TouchableOpacity style={{ backgroundColor: '#006491', height: 40, padding: 10 }}>
+                <TouchableOpacity style={{ backgroundColor: '#006491', height: 40, width: 334, padding: 10, marginLeft: -10, marginTop:-10 }}>
                         <Text style={styles.forgot_button}>Payment gateway</Text>
                     </TouchableOpacity>
 
@@ -68,10 +70,11 @@ export default class PaymentScreen extends React.Component {
                     />
                 </View>
                 </View>
-
+                    <Text style={styles.title}>Terms and Conditions are considered</Text>
                 <TouchableOpacity style={styles.loginBtn} onPress={() => this.props.navigation.navigate('ConfirmationScreen')}>
                     <Text style={styles.pay}>Pay Now</Text>
                 </TouchableOpacity>
+                </ScrollView>
             </View>
         )
     }
@@ -90,13 +93,20 @@ const styles = StyleSheet.create({
     container1: {
         backgroundColor: "#ffff",
         padding: 10,
-        borderColor : "#ffff",
-        borderWidth : 1,
+        borderColor : "#000",
+        borderWidth : 3,
+        elevation: 10,
     },
     image: {
         marginBottom: 40,
         width: 200,
         height: 200
+    },
+    title: {
+        fontSize: 14,
+        textAlign: 'center',
+        color: 'gray',
+        marginTop: 30
     },
     inputView: {
         // backgroundColor: "#E8E8E8",
@@ -116,20 +126,19 @@ const styles = StyleSheet.create({
         borderColor: '#9B9B9B',
         width: 300
     },
-    forgot_button: {
-        height: 30,
-        marginBottom: 30,
-        color: "#006491"
-    },
+    // forgot_button: {
+    //     height: 30,
+    //     marginBottom: 30,
+    //     color: "#006491"
+    // },
     loginBtn: {
         width: 240,
         borderRadius: 100,
-        height: 50,
         alignItems: "center",
         justifyContent: "center",
-        marginTop: 120,
+        marginTop: 40,
         backgroundColor: "#E42E4B",
-        marginLeft: 35
+        marginLeft: 45
     },
     pay: {
         color: "#fff",
@@ -155,6 +164,7 @@ const styles = StyleSheet.create({
       forgot_button: {
         height: 30,
         marginBottom: 30,
+        fontSize: 16,
         color: "#fff"
     },
 });

@@ -43,8 +43,8 @@ export default class CheckOutScreen extends React.Component {
                                 </View>
                             </View>
                         </View>
-                        <View style={{ flex: 1, flexDirection: 'column' }}>
-                            <Image style={styles.image1} source={{ uri: 'https://cdn-icons-png.flaticon.com/128/3597/3597088.png' }} />
+                        <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'center' }}>
+<Image style={styles.image1} source={{ uri: 'https://cdn-icons-png.flaticon.com/128/3597/3597088.png' }} />
                             <Image style={styles.image2} source={{ uri: 'https://cdn-icons-png.flaticon.com/128/216/216658.png' }} />
                         </View>
                     </View>
@@ -77,9 +77,9 @@ export default class CheckOutScreen extends React.Component {
                                 </View>
                             </View>
                         </View>
-                        <View style={{ flex: 1, flexDirection: 'column' }}>
-                            <Image style={styles.image3} source={{ uri: 'https://cdn-icons-png.flaticon.com/128/3597/3597088.png' }} />
-                            <Image style={styles.image4} source={{ uri: 'https://cdn-icons-png.flaticon.com/128/216/216658.png' }} />
+                        <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'center' }}>
+                            <Image style={styles.image1} source={{ uri: 'https://cdn-icons-png.flaticon.com/128/3597/3597088.png' }} />
+                            <Image style={styles.image2} source={{ uri: 'https://cdn-icons-png.flaticon.com/128/216/216658.png' }} />
                         </View>
                     </View>
                     <TouchableOpacity style={styles.loginBtn}
@@ -120,11 +120,12 @@ const styles = StyleSheet.create({
 
     },
     image: {
-        marginBottom: 10,
+        // marginBottom: 10,
         width: 300,
         height: 200,
         marginLeft: 20,
-        marginRight: 5
+        // marginRight: 5,
+        margin: 10
 
     },
     image1: {
@@ -136,7 +137,7 @@ const styles = StyleSheet.create({
     image2: {
         width: 30,
         height: 30,
-        marginTop: 10,
+        marginTop: 20,
         marginLeft: 250
     },
     image3: {
@@ -185,15 +186,12 @@ const styles = StyleSheet.create({
         color: "#fff"
     },
     loginBtn: {
-        width: 240,
+        width: 250,
         borderRadius: 100,
-        height: 50,
-        alignItems: "center",
-        justifyContent: "center",
-        marginTop: 80,
+        marginTop: 75,
         backgroundColor: "#E42E4B",
-        marginLeft: 55,
-
+        marginLeft: 45,
+        padding: 0
     },
     pay: {
         color: "#fff",

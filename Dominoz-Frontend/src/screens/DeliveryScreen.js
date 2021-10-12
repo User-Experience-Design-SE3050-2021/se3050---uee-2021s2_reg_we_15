@@ -107,6 +107,7 @@ onChangeStreetName = (e) => {
                     <TouchableOpacity style={{ backgroundColor: '#006491', height: 40, padding: 10 }}>
                         <Text style={styles.forgot_button}>Address Details</Text>
                     </TouchableOpacity>
+                        <View style={{ backgroundColor: '#fff' }}>
                     <Text style={styles.loginText}>Your Location</Text>
                     <View style={styles.inputView}>
                         <TextInput
@@ -156,11 +157,14 @@ onChangeStreetName = (e) => {
                                 </View>
                         </View>
                     </View>
+
+                    </View>
                 </View>
                 <View style={styles.container}>
                     <TouchableOpacity style={{ backgroundColor: '#006491', height: 40, padding: 10 }}>
                         <Text style={styles.forgot_button}>Contact Details</Text>
                     </TouchableOpacity>
+                    <View style={{backgroundColor: '#fff'}}>
                     <Text style={styles.loginText}>Mobile Number</Text>
                     <View style={styles.inputView}>
                         <TextInput
@@ -210,7 +214,7 @@ onChangeStreetName = (e) => {
                              
                             />
                         </View>
-
+</View>
                         <View style={styles.container2}>
                             <View style={{ flex: 1, flexDirection: 'column' }}>
                                 <Image style={styles.image} source={{ uri: 'https://cdn-icons-png.flaticon.com/128/217/217425.png' }} />
@@ -244,8 +248,8 @@ onChangeStreetName = (e) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        // backgroundColor: "#F1F5FF",
-        backgroundColor: "#ffff",
+        backgroundColor: "#F1F5FF",
+        // backgroundColor: "#ffff",
         padding: 10,
         paddingTop: 10
         // alignItems: "center",
@@ -294,13 +298,10 @@ const styles = StyleSheet.create({
     loginBtn: {
         width: 250,
         borderRadius: 100,
-        height: 50,
-        alignItems: "center",
-        justifyContent: "center",
-        marginTop: 170,
+        marginTop: 200,
         backgroundColor: "#E42E4B",
-        marginLeft: 55,
-        
+        marginLeft: 45,
+        padding: 0
     },
     pay: {
         color: "#fff",
